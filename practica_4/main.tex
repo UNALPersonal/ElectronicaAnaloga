@@ -45,10 +45,10 @@
 
 \author{
 \IEEEauthorblockN{Juan José Tobar Álvarez\IEEEauthorrefmark{1},
-Nombre Apellido 2\IEEEauthorrefmark{1},
-Nombre Apellido 3\IEEEauthorrefmark{1}}
+David Alejandro Montes Rodríguez\IEEEauthorrefmark{1},
+Jean Sebastián Claros Araujo\IEEEauthorrefmark{1}}
 \IEEEauthorblockA{\IEEEauthorrefmark{1}Departamento de Ingeniería Eléctrica y Electrónica, Universidad Nacional de Colombia, Bogotá, Colombia\\
-jutobara@unal.edu.co, correo2@unal.edu.co, correo3@unal.edu.co}
+jutobara@unal.edu.co, dmontesr@unal.edu.co, jclarosa3@unal.edu.co}
 }
 
 \maketitle
@@ -58,14 +58,19 @@ jutobara@unal.edu.co, correo2@unal.edu.co, correo3@unal.edu.co}
 %==================================================================
 
 \subsection{Introducción}
-En un MOSFET de canal n de enriquecimiento, como el 2N7000, el canal solo se forma si la tensión compuerta--fuente $V_{GS}$ supera la tensión umbral $V_t$; según $V_{GS}$ y la tensión drenador--fuente $V_{DS}$, el dispositivo opera en corte, triodo o saturación \cite{sedra}. La saturación es la región de amplificación: allí $I_D$ queda controlada por $V_{GS}$ casi sin depender de $V_{DS}$. El análisis DC usa las leyes de Ohm y Kirchhoff, y el AC el modelo de pequeña señal con la transconductancia $\gm$ \cite{sedra}.
+En un MOSFET de canal N de enriquecimiento, como el 2N7000, el canal solo se forma si la tensión compuerta--fuente $V_{GS}$ supera la tensión umbral $V_t$; según $V_{GS}$ y la tensión drenador--fuente $V_{DS}$, el dispositivo opera en corte, triodo o saturación \cite{sedra}. La saturación es la región de amplificación: allí $I_D$ queda controlada por $V_{GS}$ casi sin depender de $V_{DS}$. El análisis DC usa las leyes de Ohm y Kirchhoff, y el AC el modelo de pequeña señal con la transconductancia $\gm$ \cite{sedra}.
 
-\textbf{Objetivo general.} Caracterizar el MOSFET 2N7000 y diseñar amplificadores de fuente común, fuente degenerada, drenador común y en cascada, y un espejo de corriente, verificándolos mediante simulación y, en los amplificadores, también mediante medición.
+\textbf{Objetivo general.} Caracterizar el MOSFET 2N7000 y diseñar amplificadores de fuente común, fuente degenerada, drenador común y en cascada, además de un espejo de corriente, verificando estos diseños mediante simulación y en el caso de los amplificadores, también mediante mediciones experimentales.
 
-\textbf{Objetivos específicos.} (i) Determinar $V_t$ y $\kn$ mediante simulación y medición de ejemplares reales, y obtener las curvas $I_D$--$V_{DS}$; (ii) calcular el punto de polarización, $A_v$, $Z_{in}$, $Z_{out}$, los límites de pequeña señal y el ancho de banda; (iii) comparar teoría, simulación y medición mediante el error relativo porcentual.
+\textbf{Objetivos específicos.}
+\begin{enumerate}
+\item Determinar $V_t$ y $\kn$ mediante simulación y medición de ejemplares reales, y obtener las curvas $I_D$--$V_{DS}$.
+\item Calcular el punto de polarización, $A_v$, $Z_{in}$, $Z_{out}$, los límites de pequeña señal y el ancho de banda.
+\item Comparar teoría, simulación y medición mediante el error relativo porcentual.
+\end{enumerate}
 
 \subsection{Justificación}
-El 2N7000 es un MOSFET DMOS vertical de canal n (60 V, 200 mA, TO-92) pensado para amplificación, conmutación y control de motores \cite{datasheet}. En el sector aeroespacial, los MOSFET DMOS verticales han sido el dispositivo de conmutación más utilizado en los sistemas de potencia espaciales de la NASA \cite{shea}, y el Centro de Vuelo Espacial Goddard mantiene actividades de aseguramiento de dureza a la radiación para estos transistores \cite{lauenstein}. En la industria médica, los amplificadores CMOS forman el extremo frontal analógico de los sistemas portátiles de adquisición de señales biomédicas \cite{kao}. En telecomunicaciones, los MOSFET LDMOS se emplean en los amplificadores de potencia de las estaciones base celulares \cite{litwin}. La práctica enseña a extraer $V_t$ y $\kn$ de un dispositivo real y cómo la polarización fija ganancia, impedancias y ancho de banda.
+El 2N7000 es un MOSFET DMOS vertical de canal N (60 V, 200 mA, TO-92) pensado para amplificación, conmutación y control de motores \cite{datasheet}. En el sector aeroespacial, los MOSFET DMOS verticales han sido el dispositivo de conmutación más utilizado en los sistemas de potencia espaciales de la NASA \cite{shea}, y el Centro de Vuelo Espacial Goddard mantiene actividades de aseguramiento de dureza a la radiación para estos transistores \cite{lauenstein}. En la industria médica, los amplificadores CMOS forman el extremo frontal analógico de los sistemas portátiles de adquisición de señales biomédicas \cite{kao}. En telecomunicaciones, los MOSFET LDMOS se emplean en los amplificadores de potencia de las estaciones base celulares \cite{litwin}. La práctica enseña a extraer $V_t$ y $\kn$ de un dispositivo real y cómo la polarización fija ganancia, impedancias y ancho de banda.
 
 %==================================================================
 \section{Cálculos}
@@ -734,7 +739,7 @@ El seguidor se montó con el mismo MOSFET de la fuente degenerada (Fig.~\ref{fig
 
 \subsection{Amplificador en cascada}
 \label{sec:mont_casc}
-En esta configuración (Fig.~\ref{fig:montajes}(e)) se hicieron varios cambios respecto al diseño original: además de los de la fuente común, ambas etapas se alimentaron con una fuente lineal de \SI{12}{V} en lugar de la conmutada del laboratorio. Como el circuito no pudo presentarse durante las horas de clase, se presentó en un horario sin préstamo de equipos con otro instrumental: un osciloscopio portátil FNIRSI 2C53P de dos canales con generador integrado (sinusoide de \SI{10}{kHz} y \SI{0.1}{V}), a \SI{100}{mV}/div, con CH1 (entrada) en acoplamiento AC y CH2 (salida) en DC. Con $\SI{34.37}{mV_{rms}}$ de entrada la salida fue de $\SI{165.62}{mV_{rms}}$ (Fig.~\ref{fig:med}(d), en contrafase; Tabla~\ref{tab:med}); el $V_{pp}$ de la salida, \SI{506.25}{mV}, supera $2\sqrt2$ veces su valor eficaz, lo que indica picos o distorsión.
+En esta configuración (Fig.~\ref{fig:montajes}(e)) se hicieron varios cambios respecto al diseño original: además de los ya mencionados respecto a la fuente común, ambas etapas se alimentaron con una fuente lineal de \SI{12}{V} en lugar de la conmutada del laboratorio. Como el circuito no pudo presentarse durante las horas de clase, se presentó en un horario sin préstamo de equipos, por lo que se empleó otra instrumentación: Un osciloscopio portátil FNIRSI 2C53P de dos canales, y el generador de ondas de un FNIRSI DSO-153 (sinusoide de \SI{10}{kHz} y \SI{0.1}{V_{pp}}). El ajuste del osciloscopio se encuentra a:  \SI{100}{mV}/div, con CH1 (entrada) en acoplamiento AC y CH2 (salida) en DC. Con $\SI{34.37}{mV_{rms}}$ de entrada la salida fue de $\SI{165.62}{mV_{rms}}$ (Fig.~\ref{fig:med}(d), en contrafase; Tabla~\ref{tab:med}); el $V_{pp}$ de la salida, \SI{506.25}{mV}, supera $2\sqrt2$ veces su valor eficaz, lo que indica picos o distorsión.
 
 \begin{table}[htbp]
 \centering
@@ -800,7 +805,7 @@ La Fig.~\ref{fig:car_sim}(b) permite identificar las regiones de operación: la 
 
 \subsection{Diseño de los amplificadores}
 \label{sec:an_dis}
-Para garantizar amplificación se requiere saturación ($V_{DS}\ge\Vov$), una $\gm$ adecuada, capacitores que sean cortocircuitos a la frecuencia de trabajo (\eqref{eq:fc}), señales dentro del límite de pequeña señal ($v_{gs}\ll2\Vov$) y corriente y potencia dentro de la Tabla~\ref{tab:datasheet} \cite{sedra,datasheet}. La Tabla~\ref{tab:param} muestra que los tres amplificadores cumplen la saturación y consumen menos de \SI{1}{W}. En la fuente común $|A_v|=4.99$ se desvía \SI{0.2}{\percent} de 5; en la degenerada $|A_v|=3.38$ supera en \SI{12.7}{\percent} el valor de 3 y la salida de \SI{338}{mV_{pp}} cumple el mínimo de 300 mV$_{pp}$. El drenador común tiene ganancia menor que 1 y la menor $Z_{out}$ (\eqref{eq:zout_cd}), a costa de una corriente cinco veces mayor. El drenador común y el espejo se calcularon con parámetros extraídos con $I_D\le\SI{3.2}{mA}$, por lo que su corriente real puede ser mayor (Sec.~\ref{sec:an_curvas}).
+Para garantizar amplificación se requiere saturación ($V_{DS}\ge\Vov$), una $\gm$ adecuada, capacitores que sean cortocircuitos a la frecuencia de trabajo (\eqref{eq:fc}), señales dentro del límite de pequeña señal ($v_{gs}\ll2\Vov$) y corriente y potencia dentro de la Tabla~\ref{tab:datasheet} \cite{sedra,datasheet}. La Tabla~\ref{tab:param} muestra que los tres amplificadores cumplen la saturación y consumen menos de \SI{1}{W}. En la fuente común $|A_v|=4.99$ se desvía \SI{0.2}{\percent} de 5; en la degenerada $|A_v|=3.38$ supera en \SI{12.7}{\percent} el valor de 3 y la salida de \SI{338}{mV_{pp}} cumple el mínimo de 300 mV$_{pp}$. El drenador común tiene ganancia menor que 1 y la menor $Z_{out}$ (\eqref{eq:zout_cd}), a costa de una corriente cinco veces mayor. El drenador común y el espejo se calcularon con parámetros extraídos con $I_D\le\SI{3.2}{mA}$, por lo que su corriente real, en efecto podía ser mayor (Sec.~\ref{sec:an_curvas}).
 
 \subsection{Fuentes común y degenerada: teoría frente a simulación}
 \label{sec:an_amp}
