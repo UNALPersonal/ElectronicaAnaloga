@@ -41,7 +41,7 @@
 
 \begin{document}
 
-\title{Caracterización de un MOSFET 2N7000 y diseño de amplificadores con MOSFET y de un espejo de corriente: informe de la Práctica 4}
+\title{Caracterización del MOSFET 2N7000 y diseño de amplificadores y de un espejo de corriente (Práctica 4)}
 
 \author{
 \IEEEauthorblockN{Juan José Tobar Álvarez\IEEEauthorrefmark{1},
@@ -368,7 +368,7 @@ $\hat v_{in}$ & $v_{out,pp}$ & $|A_v|$ & $HD_2$ sim. & $HD_2$ teór. & Error & $
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-  width=0.98\columnwidth, height=4.0cm,
+  width=0.98\columnwidth, height=3.5cm,
   xlabel={$v_{in,pp}$ (V)}, ylabel={$v_{out,pp}$ (V)},
   xmin=0, xmax=0.8, ymin=0, ymax=6.8,
   grid=both, grid style={gray!25},
@@ -376,7 +376,7 @@ $\hat v_{in}$ & $v_{out,pp}$ & $|A_v|$ & $HD_2$ sim. & $HD_2$ teór. & Error & $
   % --- Cambio: Leyenda afuera en el borde inferior y dividida en 2 columnas ---
   legend style={
     font=\tiny, 
-    at={(0.5,-0.35)}, 
+    at={(0.5,-0.42)}, 
     anchor=north, 
     legend columns=2, 
     inner sep=2pt, 
@@ -435,7 +435,7 @@ Se realizó el barrido \texttt{.ac} de 1 Hz a 100 MHz con la fuente de entrada e
 \begin{minipage}[b]{0.49\columnwidth}
 \centering
 \begin{tikzpicture}
-\begin{semilogxaxis}[width=1.12\linewidth, height=3.4cm, xlabel={$f$ (Hz)}, ylabel={$|V_{out}/V_{in}|$ (dB)},
+\begin{semilogxaxis}[width=1.12\linewidth, height=3.0cm, xlabel={$f$ (Hz)}, ylabel={$|V_{out}/V_{in}|$ (dB)},
   xmin=1, xmax=1e8, ymin=0, ymax=35, grid=both, grid style={gray!25},
   tick label style={font=\tiny}, label style={font=\scriptsize},
   legend style={font=\tiny, at={(0.98,0.97)}, anchor=north east, draw=none, fill=white, fill opacity=0.8, inner sep=1pt},
@@ -455,7 +455,7 @@ Se realizó el barrido \texttt{.ac} de 1 Hz a 100 MHz con la fuente de entrada e
 \begin{minipage}[b]{0.49\columnwidth}
 \centering
 \begin{tikzpicture}
-\begin{semilogxaxis}[width=1.12\linewidth, height=3.4cm, xlabel={$f$ (Hz)}, ylabel={$|V_{out}/V_{in}|$ (dB)},
+\begin{semilogxaxis}[width=1.12\linewidth, height=3.0cm, xlabel={$f$ (Hz)}, ylabel={$|V_{out}/V_{in}|$ (dB)},
   xmin=1, xmax=1e8, ymin=-50, ymax=25, grid=both, grid style={gray!25},
   tick label style={font=\tiny}, label style={font=\scriptsize},
   legend style={font=\tiny, at={(0.98,0.03)}, anchor=south east, draw=none, fill=white, fill opacity=0.8, inner sep=1pt},
@@ -514,7 +514,7 @@ Se simuló el seguidor de la Fig.~\ref{fig:cs} con los valores de la Tabla~\ref{
 \begin{minipage}[b]{0.49\columnwidth}
 \centering
 \begin{tikzpicture}
-\begin{axis}[width=1.12\linewidth, height=3.4cm, xlabel={$t$ ($\mu$s)}, ylabel={Voltaje (mV)},
+\begin{axis}[width=1.12\linewidth, height=3.0cm, xlabel={$t$ ($\mu$s)}, ylabel={Voltaje (mV)},
   xmin=0, xmax=200, ymin=-120, ymax=120, grid=both, grid style={gray!25},
   tick label style={font=\tiny}, label style={font=\scriptsize},
   legend style={font=\tiny, at={(0.5,1.02)}, anchor=south, legend columns=2, draw=none, inner sep=1pt},
@@ -530,7 +530,7 @@ Se simuló el seguidor de la Fig.~\ref{fig:cs} con los valores de la Tabla~\ref{
 \begin{minipage}[b]{0.49\columnwidth}
 \centering
 \begin{tikzpicture}
-\begin{semilogxaxis}[width=1.12\linewidth, height=3.4cm, xlabel={$f$ (Hz)}, ylabel={$|V_{out}/V_{in}|$ (dB)},
+\begin{semilogxaxis}[width=1.12\linewidth, height=3.0cm, xlabel={$f$ (Hz)}, ylabel={$|V_{out}/V_{in}|$ (dB)},
   xmin=1, xmax=1e8, ymin=-45, ymax=2, grid=both, grid style={gray!25},
   tick label style={font=\tiny}, label style={font=\scriptsize},
   legend style={font=\tiny, at={(0.98,0.03)}, anchor=south east, draw=none, fill=white, fill opacity=0.8, inner sep=1pt},
@@ -583,12 +583,12 @@ Para el barrido logarítmico en frecuencia se obtuvo $A_v=0.0508$, 0.0558, 3.759
 % USUARIO: coloca en la carpeta del proyecto los PNG exportados de LTspice/Python:
 % curva_transferencia_cascada_ajuste.png (elipse v_out vs v_in con ajuste lineal, Av=-4.58 V/V)
 % bode_cascada_v2.png (magnitud en dB vs frecuencia, con fL=694 Hz y fH=15.1 MHz)
-\begin{minipage}[b]{0.49\columnwidth}
+\begin{minipage}[b]{0.43\columnwidth}
 \centering
 \includegraphics[width=\linewidth]{curva_transferencia_cascada_ajuste.png}\\[1pt]
 {\footnotesize (a)}
 \end{minipage}\hfill
-\begin{minipage}[b]{0.49\columnwidth}
+\begin{minipage}[b]{0.53\columnwidth}
 \centering
 \includegraphics[width=\linewidth]{bode_cascada_v2.png}\\[1pt]
 {\footnotesize (b)}
@@ -601,8 +601,7 @@ Para el barrido logarítmico en frecuencia se obtuvo $A_v=0.0508$, 0.0558, 3.759
 \subsection{Fuente de corriente espejo}
 \label{sec:sim_esp}
 
-\subsubsection{Polarización y variaciones respecto a los cálculos}
-Se simuló en LTspice el espejo de la guía con dos MOSFET 2N7000, $V_{DD}=\SI{14.15}{V}$ y $R=R_L=\SI{330}{\ohm}$; la Tabla~\ref{tab:esp} compara el punto de operación con las \eqref{eq:vgs_esp} y \eqref{eq:vdd_esp}.
+\noindent\textit{Polarización y variaciones respecto a los cálculos.} Se simuló en LTspice el espejo de la guía con dos MOSFET 2N7000, $V_{DD}=\SI{14.15}{V}$ y $R=R_L=\SI{330}{\ohm}$; la Tabla~\ref{tab:esp} compara el punto de operación con las \eqref{eq:vgs_esp} y \eqref{eq:vdd_esp}.
 
 \begin{table}[htbp]
 \centering
@@ -615,19 +614,15 @@ Se simuló en LTspice el espejo de la guía con dos MOSFET 2N7000, $V_{DD}=\SI{1
 Variable & Cálculo & LTspice & Error (\%) \\
 \midrule
 $I_D$ (mA) & 35 & 34.603 & 1.13 \\
-$V_{GS}$, $M_1$ y $M_2$ (V) & 2.595 & 2.730 & 5.2 \\
-$V_G$ (V) & 2.595 & 2.730 & 5.2 \\
-$V_D$, $M_1$ (V) & 2.595 & 2.730 & 5.2 \\
-$V_{DS}$, $M_1$ y $M_2$ (V) & 2.595 & 2.730 & 5.2 \\
+$V_{GS}=V_G=V_{D,M_1}=V_{DS}$, $M_1$ y $M_2$ (V) & 2.595 & 2.730 & 5.2 \\
 $V_S$ (V) & 0 & 0 & 0.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-La corriente simulada es \SI{1.1}{\percent} menor que los \SI{35}{mA} de diseño, lo que confirma la elección de $R=R_L=\SI{330}{\ohm}$ y $V_{DD}=\SI{14.15}{V}$. Las tensiones valen \SI{2.730}{V}, un \SI{5.2}{\percent} más que los \SI{2.595}{V} calculados, porque el transistor simulado necesita más $V_{GS}$ para conducir la misma corriente que la predicha con $\Vtm$ y $\knm$, que se extrajeron a corrientes menores y no incluyen efectos como la resistencia serie de fuente.
+La corriente simulada es \SI{1.1}{\percent} menor que los \SI{35}{mA} de diseño, ; las tensiones valen \SI{2.730}{V}, un \SI{5.2}{\percent} más que los \SI{2.595}{V} calculados, porque el transistor simulado necesita más $V_{GS}$ para la misma corriente que la predicha con $\Vtm$ y $\knm$, extraídos a corrientes menores y sin efectos como la resistencia serie de fuente.
 
-\subsubsection{Impedancia de salida}
-El espejo no tiene puerto de entrada de señal: la compuerta de $M_2$ se une al drenador de $M_1$ y solo fija la polarización, de modo que no hay $Z_{in}$ ni ganancia de tensión que definir. Sí tiene puerto de salida, el drenador de $M_2$, donde se conecta la carga, y por eso se calcula $Z_{out}$ (la resistencia de salida de la fuente de corriente, $r_o$ de $M_2$). En la simulación se reemplazó $R_L$ por una fuente de tensión variable, barrida de 0 a \SI{14.15}{V} con \texttt{.dc}, y se graficó la corriente entregada contra la tensión en el drenador de $M_2$ (Fig.~\ref{fig:caracteristica_salida}); en saturación
+\noindent\textit{Impedancia de salida.} El espejo no tiene puerto de entrada de señal: la compuerta de $M_2$ se une al drenador de $M_1$ y solo fija la polarización, de modo que no hay $Z_{in}$ ni ganancia de tensión que definir. Sí tiene puerto de salida, el drenador de $M_2$, donde se conecta la carga, y por eso se calcula $Z_{out}$ (la resistencia de salida de la fuente de corriente, $r_o$ de $M_2$). En la simulación se reemplazó $R_L$ por una fuente de tensión variable, barrida de 0 a \SI{14.15}{V} con \texttt{.dc}, y se graficó la corriente entregada contra la tensión en el drenador de $M_2$ (Fig.~\ref{fig:caracteristica_salida}); en saturación
 \begin{equation}
 Z_{out}=\frac{\Delta V_{out}}{\Delta I_{out}}.
 \label{eq:zout_esp}
@@ -637,18 +632,17 @@ Aquí la corriente no cambió (\SI{34.603}{mA}) en \SI{12.85}{V}, así que $\Del
 \begin{figure}[htbp]
     \centering
     % USUARIO: PNG de I_out contra V_out (barrido .dc de la fuente de prueba) exportado de LTspice/Python.
-    \includegraphics[width=0.78\columnwidth]{Pa_sacar_Zout_fuente_corriente_Iout_vs_vout.png}
+    \includegraphics[width=0.60\columnwidth]{Pa_sacar_Zout_fuente_corriente_Iout_vs_vout.png}
     \caption{Característica de salida de la fuente de corriente espejo: $I_{out}$ contra la tensión en el drenador de $M_2$; el punto de operación es (\SI{2.73}{V}, \SI{34.60}{mA}).}
     \label{fig:caracteristica_salida}
 \end{figure}
 
-\subsubsection{Curva de transferencia}
-El espejo no tiene entrada ni salida en tensión, por lo que no existe una curva $V_{in}$ contra $V_{out}$; la curva de transferencia equivalente es $I_{out}$ contra $I_{ref}$ (fuente $I_1$), cuya pendiente es la ganancia de corriente, idealmente 1 (Fig.~\ref{fig:curva_transferencia}). Se usó un barrido \texttt{.dc I1 0 50m 0.5m} con $V_{DD}=\SI{14.15}{V}$ y $R_L=\SI{330}{\ohm}$, midiendo $I_{out}$ como la corriente por $R_L$ con una fuente de \SI{0}{V} como amperímetro. $I_{out}$ sigue la recta ideal hasta $\approx\SI{38}{mA}$; después $M_2$ sale de saturación y la corriente se limita a $V_{DD}/R_L\approx\SI{42.9}{mA}$. El espejo es válido mientras $V_{DS2}\ge\Vov$, es decir, hasta $I_{ref}\approx\SI{39}{mA}$ según el cálculo, de modo que los \SI{35}{mA} de diseño quedan dentro con un margen de \SI{4}{mA}. No se presenta diagrama de Bode porque el espejo es un circuito de polarización en continua: copia una corriente de referencia y no amplifica ni filtra una señal.
+\noindent\textit{Curva de transferencia.} El espejo no tiene entrada ni salida en tensión, por lo que no existe una curva $V_{in}$ contra $V_{out}$; la curva de transferencia equivalente es $I_{out}$ contra $I_{ref}$ (fuente $I_1$), cuya pendiente es la ganancia de corriente, idealmente 1 (Fig.~\ref{fig:curva_transferencia}). Se usó un barrido \texttt{.dc I1 0 50m 0.5m} con $V_{DD}=\SI{14.15}{V}$ y $R_L=\SI{330}{\ohm}$, midiendo $I_{out}$ en $R_L$. $I_{out}$ sigue la recta ideal hasta $\approx\SI{38}{mA}$; después $M_2$ sale de saturación y la corriente se limita a $V_{DD}/R_L\approx\SI{42.9}{mA}$. El espejo es válido mientras $V_{DS2}\ge\Vov$, es decir, hasta $I_{ref}\approx\SI{39}{mA}$ según el cálculo, de modo que los \SI{35}{mA} de diseño quedan dentro con un margen de \SI{4}{mA}. No se presenta diagrama de Bode: el espejo es un circuito de polarización en continua que no amplifica ni filtra una señal.
 
 \begin{figure}[htbp]
     \centering
     % USUARIO: PNG de I_out contra I_ref (barrido .dc de I1) exportado de LTspice/Python.
-    \includegraphics[width=0.78\columnwidth]{curva_transferencia_espejo.png}
+    \includegraphics[width=0.60\columnwidth]{curva_transferencia_espejo.png}
     \caption{Curva de transferencia del espejo de corriente (2N7000): $I_{out}$ contra $I_{ref}$, simulada e ideal ($I_{out}=I_{ref}$).}
     \label{fig:curva_transferencia}
 \end{figure}
@@ -662,27 +656,27 @@ En el laboratorio se montaron y se mostraron en funcionamiento los amplificadore
 \centering
 \begin{minipage}[t]{0.19\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=1.2in,keepaspectratio]{caracterización_del_MOSFET.jpg}\\[1pt]
+\includegraphics[width=\linewidth,height=0.95in,keepaspectratio]{caracterización_del_MOSFET.jpg}\\[1pt]
 {\footnotesize (a)}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.19\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=1.2in,keepaspectratio]{Source_común.jpg}\\[1pt]
+\includegraphics[width=\linewidth,height=0.95in,keepaspectratio]{Source_común.jpg}\\[1pt]
 {\footnotesize (b)}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.19\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=1.2in,keepaspectratio]{source_degenerada.jpg}\\[1pt]
+\includegraphics[width=\linewidth,height=0.95in,keepaspectratio]{source_degenerada.jpg}\\[1pt]
 {\footnotesize (c)}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.19\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=1.2in,keepaspectratio]{drain_común.jpg}\\[1pt]
+\includegraphics[width=\linewidth,height=0.95in,keepaspectratio]{drain_común.jpg}\\[1pt]
 {\footnotesize (d)}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.19\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=1.2in,keepaspectratio]{cascada.jpg}\\[1pt]
+\includegraphics[width=\linewidth,height=0.95in,keepaspectratio]{cascada.jpg}\\[1pt]
 {\footnotesize (e)}
 \end{minipage}
 \caption{Montajes experimentales: (a) caracterización del 2N7000 (Fig.~\ref{fig:circ_car}(a)); (b) amplificador de fuente común; (c) fuente degenerada; (d) drenador común; (e) cascada.}
@@ -730,9 +724,9 @@ $R_1$ (k$\Omega$) & $V_{GS}$ (V) & $I_D$ (mA) & $V_{GS}$ (V) & $I_D$ (mA) & $V_{
 
 \subsection{Amplificadores de fuente común y fuente degenerada}
 \label{sec:mont_fc}
-Para el amplificador de fuente común se siguió la topología simulada (Fig.~\ref{fig:cs}; Fig.~\ref{fig:montajes}(b)). Para acercarse a $R_D=\SI{160}{\ohm}$ se emplearon resistencias de \SI{100}{\ohm} y \SI{68}{\ohm} en serie, ya que esta última, aunque existe comercialmente, es escasa. Como esta topología es muy sensible a los efectos termoeléctricos y a las tolerancias del semiconductor, para obtener la ganancia pedida se retiró después la resistencia de \SI{68}{\ohm}, dejando $R_D=\SI{100}{\ohm}$; los capacitores del diseño fueron electrolíticos. El amplificador de fuente degenerada (Fig.~\ref{fig:montajes}(c)) usa un capacitor menos, el que va en paralelo con $R_S$ en la fuente común, y, gracias a la estabilidad de esta topología, no difiere del diseño.
+Para el amplificador de fuente común se siguió la topología simulada (Fig.~\ref{fig:cs}; Fig.~\ref{fig:montajes}(b)). Para acercarse a $R_D=\SI{160}{\ohm}$ se usaron resistencias de \SI{100}{\ohm} y \SI{68}{\ohm} en serie (esta última, escasa); como la topología es muy sensible a los efectos termoeléctricos y a las tolerancias del semiconductor, para obtener la ganancia pedida se retiró después la de \SI{68}{\ohm}, dejando $R_D=\SI{100}{\ohm}$; los capacitores fueron electrolíticos. El amplificador de fuente degenerada (Fig.~\ref{fig:montajes}(c)) omite el capacitor en paralelo con $R_S$ y, gracias a la estabilidad de esta topología, no difiere del diseño.
 
-Ambos se midieron con el osciloscopio Tektronix TBS1102B-EDU, con acoplamiento AC, sonda 1X, \SI{50}{\micro s}/div y registros de 2\,500 puntos (intervalo de \SI{200}{ns}), exportados en CSV; la salida se leyó en CH1 y la entrada en CH2. Como el ruido de banda ancha infla el $V_{pp}$ que reporta el osciloscopio, las amplitudes se obtuvieron ajustando por mínimos cuadrados una sinusoide a cada registro, y el $HD_2$ con la proyección de Fourier sobre un número entero de periodos. Con la entrada en $\SI{98.8}{mV_{pp}}$ ($\hat v_{in}\approx\SI{50}{mV}$) la fuente común entregó $\SI{523.2}{mV_{pp}}$ y la degenerada $\SI{328.7}{mV_{pp}}$ con $\SI{98.6}{mV_{pp}}$ de entrada (Tabla~\ref{tab:med}, Fig.~\ref{fig:med}(a) y (b)); en ambos casos la salida está invertida.
+Ambos se midieron con el osciloscopio Tektronix TBS1102B-EDU (acoplamiento AC, sonda 1X, \SI{50}{\micro s}/div, 2\,500 puntos exportados en CSV; salida en CH1 y entrada en CH2). Como el ruido de banda ancha infla el $V_{pp}$ que reporta el osciloscopio, las amplitudes se obtuvieron ajustando por mínimos cuadrados una sinusoide a cada registro, y el $HD_2$ con la proyección de Fourier sobre un número entero de periodos. Con la entrada en $\SI{98.8}{mV_{pp}}$ ($\hat v_{in}\approx\SI{50}{mV}$) la fuente común entregó $\SI{523.2}{mV_{pp}}$ y la degenerada $\SI{328.7}{mV_{pp}}$ con $\SI{98.6}{mV_{pp}}$ de entrada (Tabla~\ref{tab:med}, Fig.~\ref{fig:med}(a) y (b)); en ambos casos la salida está invertida.
 
 \subsection{Amplificador de drenador común}
 \label{sec:mont_dc}
@@ -740,7 +734,7 @@ El seguidor se montó con el mismo MOSFET de la fuente degenerada (Fig.~\ref{fig
 
 \subsection{Amplificador en cascada}
 \label{sec:mont_casc}
-En esta configuración (Fig.~\ref{fig:montajes}(e)) se hicieron varios cambios respecto al diseño original. Además de los de la fuente común ya descritos, ambas etapas se alimentaron con una fuente lineal de \SI{12}{V}, en lugar de la fuente conmutada del laboratorio. Como el circuito no pudo presentarse durante las horas de clase, se presentó en un horario sin préstamo de equipos y se usó otro instrumental, un osciloscopio portátil FNIRSI 2C53P de dos canales, con generador de señales integrado (onda sinusoidal de \SI{10}{kHz} y \SI{0.1}{V}), a \SI{100}{mV}/div, con CH1 (entrada) en acoplamiento AC y CH2 (salida) en DC. Con $\SI{34.37}{mV_{rms}}$ de entrada la salida fue de $\SI{165.62}{mV_{rms}}$ (CH1 y CH2 de la Fig.~\ref{fig:med}(d), en contrafase; Tabla~\ref{tab:med}); el $V_{pp}$ de la salida, \SI{506.25}{mV}, supera $2\sqrt2$ veces su valor eficaz, lo que indica una forma de onda con picos o distorsión.
+En esta configuración (Fig.~\ref{fig:montajes}(e)) se hicieron varios cambios respecto al diseño original: además de los de la fuente común, ambas etapas se alimentaron con una fuente lineal de \SI{12}{V} en lugar de la conmutada del laboratorio. Como el circuito no pudo presentarse durante las horas de clase, se presentó en un horario sin préstamo de equipos con otro instrumental: un osciloscopio portátil FNIRSI 2C53P de dos canales con generador integrado (sinusoide de \SI{10}{kHz} y \SI{0.1}{V}), a \SI{100}{mV}/div, con CH1 (entrada) en acoplamiento AC y CH2 (salida) en DC. Con $\SI{34.37}{mV_{rms}}$ de entrada la salida fue de $\SI{165.62}{mV_{rms}}$ (Fig.~\ref{fig:med}(d), en contrafase; Tabla~\ref{tab:med}); el $V_{pp}$ de la salida, \SI{506.25}{mV}, supera $2\sqrt2$ veces su valor eficaz, lo que indica picos o distorsión.
 
 \begin{table}[htbp]
 \centering
@@ -802,15 +796,15 @@ La Tabla~\ref{tab:car} compara el ejemplar 1 con la simulación: las corrientes 
 
 \subsection{Curvas características y parámetros de operación}
 \label{sec:an_curvas}
-La Fig.~\ref{fig:car_sim}(b) permite identificar las regiones de operación y ubicar el punto de polarización para que la señal no lleve al transistor a triodo; la corriente de saturación crece con $V_{GS}$ y es casi independiente de $V_{DS}$ tras la frontera de la \eqref{eq:frontera}. Estas familias de curvas son importantes porque muestran gráficamente la frontera de la \eqref{eq:frontera} y permiten fijar un punto de polarización donde la oscilación de la señal no empuje al transistor a triodo; y son específicas del dispositivo caracterizado porque dependen de su $V_t$ y $\kn$, que varían entre ejemplares de la misma referencia (\SI{2.60}{\percent} y \SI{10.57}{\percent} en los dos medidos). La \eqref{eq:sat} con la \eqref{eq:param_op} reproduce las corrientes simuladas con errores de \SI{1.84}{\percent}, \SI{1.70}{\percent} y \SI{0.56}{\percent} para $V_{GS}$ de 2, 2.5 y 3 V, y de \SI{4.09}{\percent} y \SI{8.04}{\percent} para 3.5 y 4 V, mientras que con los parámetros de la \eqref{eq:recta}, obtenidos cerca del umbral, subestima la corriente entre \SI{30.5}{\percent} y \SI{43.1}{\percent}, porque la pendiente de $\sqrt{I_D}$ crece con $V_{GS}$ (de \SI{0.19}{A^{1/2}/V} a \SI{0.26}{A^{1/2}/V}). Por eso $V_t$ y $\kn$ deben extraerse cerca de la zona de operación, lo que afecta a los parámetros medidos ($V_{GS}\le\SI{1.752}{V}$) pues los amplificadores operan con $V_{GS}\approx\SI{2.05}{V}$. Para $V_{GS}\ge\SI{3.5}{V}$ la corriente supera los \SI{200}{mA} y la potencia \SI{1}{W}, por lo que el barrido de laboratorio debe restringirse.
+La Fig.~\ref{fig:car_sim}(b) permite identificar las regiones de operación: la corriente de saturación crece con $V_{GS}$ y es casi independiente de $V_{DS}$ tras la frontera de la \eqref{eq:frontera}. Estas familias de curvas son importantes porque muestran gráficamente esa frontera y permiten fijar un punto de polarización donde la oscilación de la señal no empuje al transistor a triodo; y son específicas del dispositivo caracterizado porque dependen de su $V_t$ y $\kn$, que varían entre ejemplares de la misma referencia (\SI{2.60}{\percent} y \SI{10.57}{\percent} en los dos medidos). La \eqref{eq:sat} con la \eqref{eq:param_op} reproduce las corrientes simuladas con errores de \SI{1.84}{\percent}, \SI{1.70}{\percent} y \SI{0.56}{\percent} para $V_{GS}$ de 2, 2.5 y 3 V, y de \SI{4.09}{\percent} y \SI{8.04}{\percent} para 3.5 y 4 V, mientras que con los parámetros de la \eqref{eq:recta}, obtenidos cerca del umbral, subestima la corriente entre \SI{30.5}{\percent} y \SI{43.1}{\percent}, porque la pendiente de $\sqrt{I_D}$ crece con $V_{GS}$ (de \SI{0.19}{A^{1/2}/V} a \SI{0.26}{A^{1/2}/V}). Por eso $V_t$ y $\kn$ deben extraerse cerca de la zona de operación, lo que afecta a los parámetros medidos ($V_{GS}\le\SI{1.752}{V}$) pues los amplificadores operan con $V_{GS}\approx\SI{2.05}{V}$. Para $V_{GS}\ge\SI{3.5}{V}$ la corriente supera los \SI{200}{mA} y la potencia \SI{1}{W}, por lo que el barrido de laboratorio debe restringirse.
 
 \subsection{Diseño de los amplificadores}
 \label{sec:an_dis}
-Para garantizar amplificación se requiere saturación ($V_{DS}\ge\Vov$), una $\gm$ adecuada, capacitores que sean cortocircuitos a la frecuencia de trabajo (\eqref{eq:fc}), señales dentro del límite de pequeña señal ($v_{gs}\ll2\Vov$) y corriente y potencia dentro de la Tabla~\ref{tab:datasheet} \cite{sedra,datasheet}. La Tabla~\ref{tab:param} muestra que los tres amplificadores cumplen la saturación y consumen menos de \SI{1}{W}. En la fuente común $|A_v|=4.99$ se desvía \SI{0.2}{\percent} de 5; en la degenerada $|A_v|=3.38$ supera en \SI{12.7}{\percent} el valor de 3 y la salida de \SI{338}{mV_{pp}} cumple el mínimo de 300 mV$_{pp}$. El drenador común tiene ganancia menor que 1 y la menor $Z_{out}$ (\eqref{eq:zout_cd}), a costa de una corriente cinco veces mayor. El drenador común y el espejo (\eqref{eq:vgs_esp}, \eqref{eq:vdd_esp}) se calcularon con parámetros extraídos con $I_D\le\SI{3.2}{mA}$, por lo que su corriente real puede ser mayor (Sec.~\ref{sec:an_curvas}).
+Para garantizar amplificación se requiere saturación ($V_{DS}\ge\Vov$), una $\gm$ adecuada, capacitores que sean cortocircuitos a la frecuencia de trabajo (\eqref{eq:fc}), señales dentro del límite de pequeña señal ($v_{gs}\ll2\Vov$) y corriente y potencia dentro de la Tabla~\ref{tab:datasheet} \cite{sedra,datasheet}. La Tabla~\ref{tab:param} muestra que los tres amplificadores cumplen la saturación y consumen menos de \SI{1}{W}. En la fuente común $|A_v|=4.99$ se desvía \SI{0.2}{\percent} de 5; en la degenerada $|A_v|=3.38$ supera en \SI{12.7}{\percent} el valor de 3 y la salida de \SI{338}{mV_{pp}} cumple el mínimo de 300 mV$_{pp}$. El drenador común tiene ganancia menor que 1 y la menor $Z_{out}$ (\eqref{eq:zout_cd}), a costa de una corriente cinco veces mayor. El drenador común y el espejo se calcularon con parámetros extraídos con $I_D\le\SI{3.2}{mA}$, por lo que su corriente real puede ser mayor (Sec.~\ref{sec:an_curvas}).
 
 \subsection{Fuentes común y degenerada: teoría frente a simulación}
 \label{sec:an_amp}
-\textit{Fuente común.} Según la Fig.~\ref{fig:transf} y la Tabla~\ref{tab:sim}, la simulación es lineal para entradas pequeñas y se comprime al crecer la amplitud: $|A_v|$ cae \SI{0.46}{\percent} con 50 mV y \SI{7.61}{\percent} con 200 mV. El $HD_2$ se duplica al duplicar la amplitud de 10 a 20 mV, como predice la \eqref{eq:hd2}, y cruza el \SI{5}{\percent} en $\hat v_{in}\approx\SI{72}{mV}$ (con 50 mV es \SI{3.45}{\percent}). Con $\Vtm$ y $\knm$ la ganancia calculada queda \SI{43.1}{\percent} por debajo de la simulada (4.99 frente a 8.77; Tabla~\ref{tab:cmp}), por lo que en simulación no se cumple $|v_{out}|\approx5|v_{in}|$. La causa es la extrapolación de la Sec.~\ref{sec:an_curvas}: con $\Vtp$ y $\knp$ la \eqref{eq:vov} da $\Vov=\SI{0.395}{V}$, $I_D=\SI{10.77}{mA}$ y $\gm=\SI{54.54}{mS}$, de modo que $I_D$ aumenta solo \SI{5.9}{\percent} (la autopolarización con $R_S$ lo fija casi sin importar $\kn$) pero $\gm=\sqrt{2\kn I_D}$ aumenta \SI{72}{\percent}; con ello la \eqref{eq:Av} da $-8.59$ y las desviaciones frente a la simulación son de solo \SI{2.1}{\percent} en $A_v$, \SI{8.2}{\percent} en $HD_2$ y \SI{9.6}{\percent} en el límite de pequeña señal. En el montaje cabe esperar $|A_v|>4.99$ y un límite menor que \SI{128}{mV}; con $\gm=\SI{54.54}{mS}$ la \eqref{eq:rd_cs} daría $R_D=\SI{92.5}{\ohm}$.
+\textit{Fuente común.} Según la Fig.~\ref{fig:transf} y la Tabla~\ref{tab:sim}, la simulación es lineal para entradas pequeñas y se comprime al crecer la amplitud: $|A_v|$ cae \SI{0.46}{\percent} con 50 mV y \SI{7.61}{\percent} con 200 mV. El $HD_2$ se duplica al duplicar la amplitud de 10 a 20 mV, como predice la \eqref{eq:hd2}, y cruza el \SI{5}{\percent} en $\hat v_{in}\approx\SI{72}{mV}$ (con 50 mV es \SI{3.45}{\percent}). Con $\Vtm$ y $\knm$ la ganancia calculada queda \SI{43.1}{\percent} por debajo de la simulada (4.99 frente a 8.77; Tabla~\ref{tab:cmp}), por lo que en simulación no se cumple $|v_{out}|\approx5|v_{in}|$. La causa es la extrapolación de la Sec.~\ref{sec:an_curvas}: con $\Vtp$ y $\knp$ la \eqref{eq:vov} da $\Vov=\SI{0.395}{V}$, $I_D=\SI{10.77}{mA}$ y $\gm=\SI{54.54}{mS}$, de modo que $I_D$ aumenta solo \SI{5.9}{\percent} (la autopolarización con $R_S$ lo fija casi sin importar $\kn$) pero $\gm=\sqrt{2\kn I_D}$ aumenta \SI{72}{\percent}; con ello la \eqref{eq:Av} da $-8.59$ y las desviaciones frente a la simulación son de solo \SI{2.1}{\percent} en $A_v$, \SI{8.2}{\percent} en $HD_2$ y \SI{9.6}{\percent} en el límite de pequeña señal. En el montaje cabe esperar $|A_v|>4.99$ y un límite menor que \SI{128}{mV}.
 
 \begin{table}[htbp]
 \centering
@@ -836,17 +830,17 @@ $HD_2$ (\%) & 0.0805 & 0.0718 & \SI{10.8}{\percent} & 0.0473 & \SI{41.2}{\percen
 \end{tabular}
 \end{table}
 
-\textit{Fuente degenerada.} La característica es prácticamente lineal en todo el barrido: $|A_v|$ solo cae \SI{0.15}{\percent} entre 10 y 400 mV, la salida de \SI{308.5}{mV_{pp}} cumple el mínimo de 300 mV$_{pp}$ (margen de \SI{2.8}{\percent}) y el $HD_2$ de \SI{0.0805}{\percent} con 50 mV es unas 43 veces menor que el de la fuente común; con 400 mV no se alcanza el \SI{5}{\percent} porque $\hat v_{gs}=400/9.35=\SI{42.8}{mV}<0.2\,\Vov=\SI{60.5}{mV}$, de acuerdo con la \eqref{eq:limite_deg}. Con $\Vtp$ y $\knp$ la ganancia calculada difiere \SI{9.6}{\percent} de la simulada y el $\gm$ equivalente, \SI{21.98}{mS}, queda lejos de los \SI{41.75}{mS} calculados (\SI{89.9}{\percent}): es la misma extrapolación, pues esos parámetros se extrajeron con $I_D$ de decenas de mA y el amplificador opera con $I_D\approx\SI{6.3}{mA}$. Con los parámetros del ejemplar 1 los errores bajan a \SI{2.0}{\percent} en $A_v$, \SI{11.8}{\percent} en $\gm$ y \SI{10.8}{\percent} en $HD_2$. La degeneración reduce la sensibilidad a los parámetros (error en $A_v$ de \SI{43.1}{\percent} a \SI{9.6}{\percent}) pero no elimina el error sistemático; conviene extraer $V_t$ y $\kn$ cerca de $I_D\approx\SI{6}{mA}$.
+\textit{Fuente degenerada.} La característica es prácticamente lineal en todo el barrido: $|A_v|$ solo cae \SI{0.15}{\percent} entre 10 y 400 mV, la salida de \SI{308.5}{mV_{pp}} cumple el mínimo de 300 mV$_{pp}$ (margen de \SI{2.8}{\percent}) y el $HD_2$ de \SI{0.0805}{\percent} con 50 mV es unas 43 veces menor que el de la fuente común; con 400 mV no se alcanza el \SI{5}{\percent} porque $\hat v_{gs}=400/9.35=\SI{42.8}{mV}<0.2\,\Vov=\SI{60.5}{mV}$, de acuerdo con la \eqref{eq:limite_deg}. Con $\Vtp$ y $\knp$ la ganancia calculada difiere \SI{9.6}{\percent} de la simulada y el $\gm$ equivalente, \SI{21.98}{mS}, queda lejos de los \SI{41.75}{mS} calculados (\SI{89.9}{\percent}): es la misma extrapolación, pues esos parámetros se extrajeron con $I_D$ de decenas de mA y el amplificador opera con $I_D\approx\SI{6.3}{mA}$. Con los parámetros del ejemplar 1 los errores bajan a \SI{2.0}{\percent}, \SI{11.8}{\percent} y \SI{10.8}{\percent} (Tabla~\ref{tab:cmp}). La degeneración reduce la sensibilidad a los parámetros (error en $A_v$ de \SI{43.1}{\percent} a \SI{9.6}{\percent}) pero no elimina el error sistemático; conviene extraer $V_t$ y $\kn$ cerca de $I_D\approx\SI{6}{mA}$.
 
 \subsection{Punto de operación, impedancias y drenador común}
 \label{sec:an_op_zin}
 El punto de operación simulado de la fuente común coincide con la teoría con un error máximo de \SI{0.51}{\percent} en $I_D$ y \SI{0.22}{\percent} en $V_{DS}$ (Tabla~\ref{tab:op}), lo que valida el diseño con los parámetros del ejemplar 1; en la degenerada el acuerdo es menor ($I_D$ \SI{8.3}{\percent}, $V_{DS}$ \SI{15.1}{\percent}) por la extrapolación hasta $I_D\approx\SI{6}{mA}$. Las impedancias simuladas a 10 kHz coinciden con las teóricas (\SI{0.0}{\percent}), lo que valida el modelo de pequeña señal y que a esa frecuencia los capacitores son cortocircuitos; $Z_{in}$ es alta (\SI{64}{k\ohm} y \SI{69}{k\ohm}, fijada por el divisor) y $Z_{out}=R_D$ es mayor en la degenerada (\SI{820}{\ohm} frente a \SI{160}{\ohm}) porque necesita un $R_D$ mayor para alcanzar su ganancia (\eqref{eq:Av_deg}).
 
-En el drenador común (Sec.~\ref{sec:sim_cd}) la ganancia y el punto de operación coinciden con la teoría. La discrepancia en $Z_{out}$ (\SI{11.3}{\percent}) se debe a que la \eqref{eq:zout_cd} desprecia $r_o$ y las capacitancias parásitas, y el $HD_2$ simulado (\SI{0.0856}{\percent}) es muy bajo porque $v_{gs}\approx0.2\,v_{in}$, aunque supera en \SI{25.2}{\percent} al de la \eqref{eq:hd2_deg}, una aproximación a segundo orden.
+En el drenador común (Sec.~\ref{sec:sim_cd}) la ganancia y el punto de operación coinciden con la teoría; la discrepancia en $Z_{out}$ (\SI{11.3}{\percent}) se debe a que la \eqref{eq:zout_cd} desprecia $r_o$ y las capacitancias parásitas, y el $HD_2$ simulado (\SI{0.0856}{\percent}) es muy bajo porque $v_{gs}\approx0.2\,v_{in}$, aunque supera en \SI{25.2}{\percent} al de la \eqref{eq:hd2_deg}, una aproximación a segundo orden.
 
 \subsection{Respuesta en frecuencia y ancho de banda}
 \label{sec:an_bode}
-En la fuente común (Fig.~\ref{fig:bode}(a)) el corte inferior de $\approx\SI{310}{Hz}$ está dominado por $C_S$, cuyo polo teórico es $f_p=\SI{611}{Hz}$ (\eqref{eq:fc}; error de \SI{49.3}{\percent}); no hay corte superior hasta \SI{100}{MHz}, pues la baja resistencia vista por las capacitancias parásitas ($\approx\SI{157}{\ohm}$) desplaza ese polo por encima del barrido, y el ancho de banda es mayor que \SI{100}{MHz} (cota inferior). En la degenerada (Fig.~\ref{fig:bode}(b)) $f_L\approx\SI{465}{Hz}$ y $f_H\approx\SI{34}{MHz}$ dan un ancho de banda del orden de \SI{34}{MHz}; la muesca de \SI{63.4}{Hz} no corresponde a ningún polo o cero del diseño y puede deberse a la interacción de $C_1$ con la red de polarización o a la configuración del \texttt{.ac}, sin afectar la banda media. Los plateaus de \SI{5.66}{dB} y \SI{22.74}{dB} no coinciden con las ganancias transitorias (\SI{18.9}{dB} y \SI{9.8}{dB}) y en la FC la ganancia crece hacia baja frecuencia, contrario a lo esperado con $C_S$; por ello de estos barridos solo se toman las frecuencias de corte y no la magnitud de la banda media, que se toma de los transitorios. El drenador común (Fig.~\ref{fig:cd}(b)) tiene teóricamente el menor corte inferior ($\approx\SI{140}{Hz}$, por $C_2$) y respuesta plana en $-1.92$ dB; es una curva teórica, sin barrido simulado. En la cascada (Fig.~\ref{fig:casc}(b)) la ganancia en banda media de \SI{4.42}{V/V} difiere \SI{4.1}{\percent} de los \SI{4.61}{V/V} de la \eqref{eq:Av_casc}, y $f_L\approx\SI{694}{Hz}$ y $f_H\approx\SI{15.1}{MHz}$ resultan peores que los de cada etapa, como es propio de una cascada. El corte inferior es así $\approx\SI{140}{Hz}$ (DC) $<\SI{310}{Hz}$ (FC) $<\SI{465}{Hz}$ (FD) $<\SI{694}{Hz}$ (cascada), y el ancho de banda va desde \SI{15.1}{MHz} (cascada) y \SI{34}{MHz} (FD) hasta superar los \SI{100}{MHz} (FC).
+En la fuente común (Fig.~\ref{fig:bode}(a)) el corte inferior de $\approx\SI{310}{Hz}$ está dominado por $C_S$, cuyo polo teórico es $f_p=\SI{611}{Hz}$ (\eqref{eq:fc}; error de \SI{49.3}{\percent}); no hay corte superior hasta \SI{100}{MHz}, pues la baja resistencia vista por las capacitancias parásitas ($\approx\SI{157}{\ohm}$) desplaza ese polo por encima del barrido, y el ancho de banda es mayor que \SI{100}{MHz} (cota inferior). En la degenerada (Fig.~\ref{fig:bode}(b)) $f_L\approx\SI{465}{Hz}$ y $f_H\approx\SI{34}{MHz}$ dan un ancho de banda del orden de \SI{34}{MHz}; la muesca de \SI{63.4}{Hz} no corresponde a ningún polo o cero del diseño y puede deberse a la interacción de $C_1$ con la red de polarización o a la configuración del \texttt{.ac}, sin afectar la banda media. Los plateaus de \SI{5.66}{dB} y \SI{22.74}{dB} no coinciden con las ganancias transitorias (\SI{18.9}{dB} y \SI{9.8}{dB}) y en la FC la ganancia crece hacia baja frecuencia, contrario a lo esperado con $C_S$; por ello de estos barridos solo se toman las frecuencias de corte y la banda media se toma de los transitorios. El drenador común (Fig.~\ref{fig:cd}(b)) tiene teóricamente el menor corte inferior ($\approx\SI{140}{Hz}$, por $C_2$) y respuesta plana en $-1.92$ dB (curva teórica, sin barrido simulado). En la cascada (Fig.~\ref{fig:casc}(b)) la ganancia en banda media de \SI{4.42}{V/V} difiere \SI{4.1}{\percent} de los \SI{4.61}{V/V} de la \eqref{eq:Av_casc}, y $f_L\approx\SI{694}{Hz}$ y $f_H\approx\SI{15.1}{MHz}$ resultan peores que los de cada etapa, como es propio de una cascada. Así, el corte inferior crece de $\approx\SI{140}{Hz}$ (DC) a \SI{310}{Hz} (FC), \SI{465}{Hz} (FD) y \SI{694}{Hz} (cascada), y el ancho de banda baja de más de \SI{100}{MHz} (FC) a \SI{34}{MHz} (FD) y \SI{15.1}{MHz} (cascada).
 
 \subsection{Resultados experimentales frente a teoría y simulación}
 \label{sec:an_med}
@@ -877,22 +871,22 @@ Cascada & $|A_v|$ (V/V) & 4.82 & 4.61 & 0.21 & 4.5 & 4.58 & 0.24 & 5.2 \\
 \end{tabular}
 \end{table*}
 
-\textit{Fuente común.} La ganancia medida (5.29) cumple el objetivo de 5 con \SI{6.1}{\percent} de error, pero difiere \SI{39.6}{\percent} de la simulada (8.77) porque el montaje usó $R_D=\SI{100}{\ohm}$ y no los \SI{160}{\ohm} simulados. Con $R_D=\SI{100}{\ohm}$ y $R_L=\SI{10}{k\ohm}$ resulta $R_D\parallel R_L=\SI{99.0}{\ohm}$ y, por la \eqref{eq:Av}, la ganancia medida implica $\gm\approx\SI{53.5}{mS}$, que difiere \SI{2.0}{\percent} de los \SI{54.54}{mS} del modelo con $\Vtp,\knp$ (con ese $\gm$ la \eqref{eq:Av} da 5.40) y está muy lejos de los \SI{31.69}{mS} con $\Vtm,\knm$ (que darían 3.14). Es decir, la medición confirma lo previsto en la Sec.~\ref{sec:an_amp}: la ganancia con $R_D=\SI{160}{\ohm}$ habría sido mayor que 5, y los parámetros extraídos cerca del umbral subestiman $\gm$. El $HD_2$ medido con $\hat v_{in}\approx\SI{49}{mV}$, \SI{3.67}{\percent}, difiere \SI{6.4}{\percent} del simulado y \SI{88.2}{\percent} del teórico, que usa $\Vov=\SI{0.642}{V}$ frente a $\SI{0.395}{V}$ del modelo en la zona de operación; queda por debajo del \SI{5}{\percent}, coherente con el límite simulado de \SI{72}{mV} y no con el calculado de \SI{128}{mV}. La salida está invertida: el desfase medido de $164.7^\circ$ se aparta $18.2^\circ$ de los $-177.1^\circ$ de la \eqref{eq:fase}.
+\textit{Fuente común.} La ganancia medida (5.29) cumple el objetivo de 5 con \SI{6.1}{\percent} de error, pero difiere \SI{39.6}{\percent} de la simulada (8.77) porque el montaje usó $R_D=\SI{100}{\ohm}$ y no los \SI{160}{\ohm} simulados. Con $R_D\parallel R_L=\SI{99.0}{\ohm}$ y la \eqref{eq:Av}, la ganancia medida implica $\gm\approx\SI{53.5}{mS}$, que difiere \SI{2.0}{\percent} de los \SI{54.54}{mS} del modelo con $\Vtp,\knp$ (con ese $\gm$ la \eqref{eq:Av} da 5.40) y está muy lejos de los \SI{31.69}{mS} con $\Vtm,\knm$ (que darían 3.14): la medición confirma lo previsto en la Sec.~\ref{sec:an_amp}, pues los parámetros extraídos cerca del umbral subestiman $\gm$. El $HD_2$ medido con $\hat v_{in}\approx\SI{49}{mV}$, \SI{3.67}{\percent}, difiere \SI{6.4}{\percent} del simulado y \SI{88.2}{\percent} del teórico (que usa $\Vov=\SI{0.642}{V}$ frente a \SI{0.395}{V}); queda por debajo del \SI{5}{\percent}, coherente con el límite simulado de \SI{72}{mV} y no con el calculado de \SI{128}{mV}. La salida está invertida: el desfase medido de $164.7^\circ$ se aparta $18.2^\circ$ de los $-177.1^\circ$ de la \eqref{eq:fase}.
 
 \textit{Fuente degenerada.} La ganancia medida (3.33) difiere \SI{1.5}{\percent} del diseño y \SI{7.9}{\percent} de la simulada (3.087); con $\SI{100}{mV_{pp}}$ de entrada la salida es de $\approx\SI{333}{mV_{pp}}$, por encima del mínimo de la guía de \SI{300}{mV_{pp}} (margen de \SI{11}{\percent}). Su $HD_2$ no se pudo resolver: el valor $\le\SI{0.12}{\percent}$ está en el piso de ruido de la medición (la entrada, sin distorsión apreciable, arroja \SI{0.10}{\percent} con el mismo procedimiento), y es coherente con el \SI{0.0805}{\percent} simulado. El desfase medido, $-159.2^\circ$, queda a $20.8^\circ$ de la inversión ideal.
 
-\textit{Drenador común.} La ganancia medida (0.902) es \SI{12.6}{\percent} mayor que la teórica y la simulada (0.801), y el desfase de $1.7^\circ$ (salida adelantada) es comparable con los $0.8^\circ$ que produce el polo de $C_2$ en \SI{140}{Hz}. Con $R'=\SI{60}{\ohm}$, la \eqref{eq:Av_cd} requeriría $\gm\approx\SI{154}{mS}$ para 0.902, más del doble de los \SI{67.4}{mS} del diseño, y la diferencia entre ejemplares ($\kn$ de \SI{49.41}{mA/V^2} en lugar de \SI{43.8}{mA/V^2}) solo lleva la ganancia a 0.811; por eso las tolerancias de los componentes no bastan para explicarla, y con las medidas disponibles (sin punto de operación medido) no se identificó su causa. El $V_{pp}$ de pantalla da 0.980 porque los picos de ruido de conmutación inflan el de la salida, por lo que se adopta la razón de valores eficaces.
+\textit{Drenador común.} La ganancia medida (0.902) es \SI{12.6}{\percent} mayor que la teórica y la simulada (0.801), y el desfase de $1.7^\circ$ (salida adelantada) es comparable con los $0.8^\circ$ que produce el polo de $C_2$ en \SI{140}{Hz}. Con $R'=\SI{60}{\ohm}$, la \eqref{eq:Av_cd} requeriría $\gm\approx\SI{154}{mS}$ para 0.902, más del doble de los \SI{67.4}{mS} del diseño, y usar el $\kn$ del ejemplar 1 (\SI{49.41}{mA/V^2} en lugar de \SI{43.8}{mA/V^2}) solo lleva la ganancia a 0.811; por eso las tolerancias no bastan para explicarla y, sin punto de operación medido, no se identificó su causa. Como los picos de ruido de conmutación inflan el $V_{pp}$ de pantalla (0.980), se adopta la razón de valores eficaces.
 
 \textit{Cascada.} La razón de valores eficaces da $|A_v|=4.82$, con \SI{4.5}{\percent} de error frente a los $-4.61$ calculados y \SI{5.2}{\percent} frente a los $-4.58$ simulados, y la salida está en contrafase como en ambos; la razón de $V_{pp}$ de pantalla (5.23) se aleja más (\SI{13.4}{\percent}) porque la salida tiene picos.
 
-\textit{Diferencias entre simulación y montaje.} El simulador usa componentes ideales y el modelo de canal n de LTspice, mientras que el montaje tiene resistencias y capacitores con tolerancia (los electrolíticos tienen resistencia serie), conexiones y capacitancias parásitas del protoboard, ruido, calentamiento del transistor (que desplaza la polarización de la fuente común) y ejemplares con $V_t$ y $\kn$ propios que difieren \SI{2.60}{\percent} y \SI{10.57}{\percent} entre sí. Además, la cascada se midió con otros instrumentos, y los osciloscopios tienen precisión finita y ruido de banda ancha: de ahí que se usen amplitudes ajustadas o valores eficaces y no el $V_{pp}$ de pantalla.
+\textit{Diferencias entre simulación y montaje.} El simulador usa componentes ideales y el modelo de canal n de LTspice, mientras que el montaje tiene resistencias y capacitores con tolerancia (los electrolíticos tienen resistencia serie), conexiones y capacitancias parásitas del protoboard, ruido, calentamiento del transistor (que desplaza la polarización de la fuente común) y ejemplares con $V_t$ y $\kn$ propios que difieren \SI{2.60}{\percent} y \SI{10.57}{\percent} entre sí. Además, la cascada se midió con otros instrumentos, y los osciloscopios tienen precisión finita y ruido de banda ancha, de ahí el uso de amplitudes ajustadas o valores eficaces.
 
 \subsection{Diferencias, ventajas, desventajas y aplicaciones}
 \label{sec:an_comp}
 La diferencia entre la fuente común (FC) y la degenerada (FD) está en $R_S$: en la FC se puentea con $C_S$ y la ganancia $-\gm(R_D\parallel R_L)$ es máxima pero depende de $\gm$ (\eqref{eq:Av}); en la FD, sin $C_S$, $R_S$ introduce realimentación negativa de pequeña señal y la ganancia pasa a $\approx-(R_D\parallel R_L)/(1/\gm+R_S)$ (\eqref{eq:Av_deg}), menor pero casi fijada por resistencias. Esto se vio en los resultados: ante el mismo cambio de parámetros, el error de $|A_v|$ fue de \SI{43.1}{\percent} en la FC y \SI{9.6}{\percent} en la FD (Tabla~\ref{tab:cmp}), y el $HD_2$ a $\hat v_{in}=\SI{50}{mV}$ fue de \SI{3.67}{\percent} medido en la FC y de $\le\SI{0.12}{\percent}$ en la FD. Con base en la teoría y en los resultados experimentales:
 \begin{itemize}
-    \item \emph{Fuente común:} tiene la mayor ganancia (5.29 medida con $R_D=\SI{100}{\ohm}$), un ancho de banda mayor que \SI{100}{MHz} en simulación y $Z_{out}=R_D$ moderada, pero su ganancia es muy sensible a $\gm$ y su límite de pequeña señal es el menor (\SI{72}{mV} simulados). Es adecuada como primera etapa con señales de milivoltios (audio, telecomunicaciones).
-    \item \emph{Fuente degenerada:} su ganancia es menor (3.33), pero predecible y con distorsión mínima (límite de \SI{565}{mV} calculado); $Z_{out}=R_D=\SI{820}{\ohm}$ es mayor y el ancho de banda de \SI{34}{MHz} es menor que el de la FC. Es propia de etapas intermedias de instrumentación donde importan la fidelidad y la estabilidad frente a la temperatura.
+    \item \emph{Fuente común:} tiene la mayor ganancia (5.29 medida con $R_D=\SI{100}{\ohm}$), un ancho de banda mayor que \SI{100}{MHz} en simulación y $Z_{out}=R_D$ moderada, pero su ganancia es muy sensible a $\gm$ y su límite de pequeña señal es el menor (\SI{72}{mV} simulados). Es adecuada como primera etapa con señales de milivoltios.
+    \item \emph{Fuente degenerada:} su ganancia es menor (3.33), pero predecible y con distorsión mínima (límite de \SI{565}{mV} calculado); $Z_{out}=R_D=\SI{820}{\ohm}$ es mayor y el ancho de banda de \SI{34}{MHz} es menor que el de la FC. Es propia de etapas de instrumentación donde importan la fidelidad y la estabilidad térmica.
     \item \emph{Drenador común:} no amplifica tensión (0.902 medida, 0.801 de diseño) pero tiene $Z_{in}=\SI{222.2}{k\ohm}$ y $Z_{out}=\SI{13.5}{\ohm}$, a costa de $I_D=\SI{51.88}{mA}$ de reposo y resistencias de mayor potencia; funciona como \emph{buffer} y etapa de salida hacia cargas de \SI{100}{\ohm}.
     \item \emph{Cascada FC--DC:} combina la ganancia de la FC con la baja $Z_{out}$ del DC (\SI{16.0}{\ohm}) y entregó $|A_v|=4.82$ sobre \SI{100}{\ohm}, a cambio de un ancho de banda menor (\SI{15.1}{MHz}) que el de cada etapa.
     \item \emph{Espejo de corriente} (solo diseño y simulación): copia una corriente de referencia con $Z_{out}\to\infty$ en saturación y sin entrada de señal; es la base de la polarización de circuitos integrados, pero su exactitud depende del emparejamiento de los transistores: con los dos ejemplares medidos la corriente sería \SI{29.4}{mA}, \SI{15.9}{\percent} menos que los \SI{35}{mA} de diseño.
@@ -902,13 +896,13 @@ La diferencia entre la fuente común (FC) y la degenerada (FD) está en $R_S$: e
 \section{Conclusiones}
 %==================================================================
 \begin{enumerate}
-\item Las mediciones dieron $\Vtm=\SI{1.405}{V}$, $\knm=\SI{49.41}{mA/V^2}$ (ejemplar 1) y $V_t=\SI{1.441}{V}$, $\kn=\SI{44.18}{mA/V^2}$ (ejemplar 2), dentro de la hoja de datos; difieren \SI{2.60}{\percent} y \SI{10.57}{\percent}, y como par de un espejo de \SI{35}{mA} entregarían \SI{29.4}{mA} (\SI{15.9}{\percent} de error), por lo que hay que elegir el par más parecido.
-\item El modelo de LTspice reproduce $I_D$ y $V_{GS}$ medidos (errores de \SI{2.08}{\percent} y \SI{3.75}{\percent}) pero no los parámetros ($\Vts$ \SI{6.48}{\percent} y $\kns$ \SI{44.76}{\percent} mayores). Los parámetros extraídos cerca del umbral subestiman $I_D$ entre \SI{30.5}{\percent} y \SI{43.1}{\percent} en $V_{GS}$ de 2 a 4 V; con $\Vtp,\knp$ el error es menor que \SI{2}{\percent} entre 2 y 3 V, por lo que $V_t$ y $\kn$ deben extraerse cerca del punto de operación.
-\item En la fuente común la simulación dio $|A_v|=8.77$ y $HD_2=\SI{3.45}{\percent}$ con 50 mV, frente a 4.99 y \SI{1.95}{\percent} del diseño con parámetros medidos (\SI{43.1}{\percent} y \SI{43.4}{\percent}) y 8.59 y \SI{3.17}{\percent} con $\Vtp,\knp$ (\SI{2.1}{\percent} y \SI{8.2}{\percent}); la extrapolación altera poco $I_D$ (\SI{0.51}{\percent}) pero mucho $\gm$ (\SI{72}{\percent}), y el límite de pequeña señal simulado (\SI{72}{mV}) es menor que los \SI{128}{mV} del diseño.
-\item La fuente degenerada cumple los 300 mV$_{pp}$ ($|A_v|=3.087$, \SI{308.5}{mV_{pp}}; \SI{9.6}{\percent} de error del diseño previo y \SI{2.0}{\percent} con parámetros medidos) y su $HD_2$ es unas 43 veces menor: cambia ganancia por linealidad y atenúa, sin eliminar, la sensibilidad a los parámetros ($I_D$ y $V_{DS}$ difieren \SI{8.3}{\percent} y \SI{15.1}{\percent}).
-\item El drenador común coincide con la teoría en punto de operación y ganancia (0.8013 frente a 0.801, \SI{0.04}{\percent}), con $Z_{out}$ \SI{11.3}{\percent} menor y $HD_2=\SI{0.0856}{\percent}$; las impedancias de FC y FD a 10 kHz coinciden con la teoría (\SI{0.0}{\percent}). La cascada FC--DC coincide en polarización (menos de \SI{0.1}{\percent}) y ganancia ($-4.58$ frente a $-4.61$ V/V, \SI{0.7}{\percent}).
-\item En frecuencia, el corte inferior simulado es $\approx\SI{310}{Hz}$ (FC, frente a \SI{611}{Hz} teóricos), \SI{465}{Hz} (FD) y \SI{694}{Hz} (cascada), y el ancho de banda \SI{34}{MHz} (FD) y \SI{15.1}{MHz} (cascada), con la FC sin corte superior hasta \SI{100}{MHz}; los plateaus \texttt{.ac} de FC y FD no coinciden con la ganancia transitoria, por lo que de ellos solo se usan las frecuencias de corte.
-\item Las mediciones dieron $|A_v|=5.29$ (FC), 3.33 (FD), 0.902 (DC) y 4.82 (cascada), con errores de \SI{6.1}{\percent}, \SI{1.5}{\percent}, \SI{12.6}{\percent} y \SI{4.5}{\percent} respecto a la teoría y de \SI{39.6}{\percent}, \SI{7.9}{\percent}, \SI{12.6}{\percent} y \SI{5.2}{\percent} respecto a la simulación. La FC coincide con el diseño porque se redujo $R_D$ de \SI{160}{\ohm} a \SI{100}{\ohm}, y la ganancia medida implica $\gm\approx\SI{53.5}{mS}$ (\SI{2.0}{\percent} del modelo en la zona de operación y no de los \SI{31.69}{mS} con parámetros medidos); su $HD_2$ medido de \SI{3.67}{\percent} difiere \SI{6.4}{\percent} del simulado. En el drenador común la medición supera \SI{12.6}{\percent} a la teoría sin que las tolerancias lo expliquen.
+\item Las mediciones dieron $\Vtm=\SI{1.405}{V}$ y $\knm=\SI{49.41}{mA/V^2}$ (ejemplar 1) y $V_t=\SI{1.441}{V}$ y $\kn=\SI{44.18}{mA/V^2}$ (ejemplar 2), dentro de la hoja de datos; difieren \SI{2.60}{\percent} y \SI{10.57}{\percent}, por lo que un espejo de \SI{35}{mA} con ese par entregaría \SI{29.4}{mA} (\SI{15.9}{\percent} de error) y conviene elegir el par más parecido.
+\item El modelo de LTspice reproduce $I_D$ y $V_{GS}$ medidos (errores de \SI{2.08}{\percent} y \SI{3.75}{\percent}) pero no los parámetros ($\Vts$ \SI{6.48}{\percent} y $\kns$ \SI{44.76}{\percent} mayores). Los parámetros extraídos cerca del umbral subestiman $I_D$ entre \SI{30.5}{\percent} y \SI{43.1}{\percent} para $V_{GS}$ de 2 a 4 V; con $\Vtp,\knp$ el error es menor que \SI{2}{\percent} entre 2 y 3 V, por lo que $V_t$ y $\kn$ deben extraerse cerca del punto de operación.
+\item En la fuente común la simulación dio $|A_v|=8.77$ y $HD_2=\SI{3.45}{\percent}$ con 50 mV, frente a 4.99 y \SI{1.95}{\percent} del diseño con parámetros medidos (\SI{43.1}{\percent} y \SI{43.4}{\percent}) y 8.59 y \SI{3.17}{\percent} con $\Vtp,\knp$ (\SI{2.1}{\percent} y \SI{8.2}{\percent}): la extrapolación altera poco $I_D$ (\SI{0.51}{\percent}) pero mucho $\gm$ (\SI{72}{\percent}), y el límite de pequeña señal simulado (\SI{72}{mV}) es menor que los \SI{128}{mV} del diseño.
+\item La fuente degenerada cumple los 300 mV$_{pp}$ ($|A_v|=3.087$, \SI{308.5}{mV_{pp}}; \SI{9.6}{\percent} de error del diseño previo y \SI{2.0}{\percent} con parámetros medidos) y su $HD_2$ es unas 43 veces menor: cambia ganancia por linealidad y atenúa, sin eliminar, la sensibilidad a los parámetros.
+\item El drenador común coincide con la teoría en polarización y ganancia (0.8013 frente a 0.801, \SI{0.04}{\percent}), con $Z_{out}$ \SI{11.3}{\percent} menor; la cascada FC--DC coincide en polarización (menos de \SI{0.1}{\percent}) y ganancia ($-4.58$ frente a $-4.61$ V/V, \SI{0.7}{\percent}), y las impedancias de FC y FD a 10 kHz coinciden con la teoría (\SI{0.0}{\percent}).
+\item En frecuencia, el corte inferior simulado es $\approx\SI{310}{Hz}$ (FC, frente a \SI{611}{Hz} teóricos), \SI{465}{Hz} (FD) y \SI{694}{Hz} (cascada), y el ancho de banda \SI{34}{MHz} (FD) y \SI{15.1}{MHz} (cascada), con la FC sin corte superior hasta \SI{100}{MHz}; de los barridos \texttt{.ac} solo se usan las frecuencias de corte.
+\item Las mediciones dieron $|A_v|=5.29$ (FC), 3.33 (FD), 0.902 (DC) y 4.82 (cascada), con errores de \SI{6.1}{\percent}, \SI{1.5}{\percent}, \SI{12.6}{\percent} y \SI{4.5}{\percent} respecto a la teoría y de \SI{39.6}{\percent}, \SI{7.9}{\percent}, \SI{12.6}{\percent} y \SI{5.2}{\percent} respecto a la simulación. La FC se acerca al diseño porque se redujo $R_D$ de \SI{160}{\ohm} a \SI{100}{\ohm}, y la ganancia medida implica $\gm\approx\SI{53.5}{mS}$ (\SI{2.0}{\percent} del modelo en la zona de operación); su $HD_2$ medido de \SI{3.67}{\percent} difiere \SI{6.4}{\percent} del simulado. En el drenador común la medición supera \SI{12.6}{\percent} a la teoría sin que las tolerancias lo expliquen.
 \end{enumerate}
 
 %==================================================================
