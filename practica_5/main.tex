@@ -41,6 +41,7 @@
 
 \title{Caracterizaci\'on del Transistor BJT 2N3904 y Dise\~no de Amplificadores de Peque\~na Se\~nal en Configuraciones B\'asicas y en Cascada}
 
+% USUARIO: Reemplazar con los nombres y correos reales de los tres integrantes.
 \author{
 \IEEEauthorblockN{Nombre Estudiante 1}
 \IEEEauthorblockA{Ingenier\'ia Electr\'onica\\
@@ -65,7 +66,7 @@ correo3@unal.edu.co}
 
 \begin{abstract}
 Se presenta el dise\~no anal\'itico y la validaci\'on por simulaci\'on en LTspice correspondientes a la Pr\'actica 5 de Electr\'onica An\'aloga I sobre el transistor BJT 2N3904. Inicialmente se caracteriza la ganancia de corriente directa $\beta$ y las regiones de operaci\'on integrando resultados simulados y mediciones previas de dos ejemplares ($\beta_{\mathrm{prom1}} = 212.58$ y $\beta_{\mathrm{prom2}} = 246.13$). Posteriormente se dise\~nan y validan en DC (\texttt{.op}) y AC las configuraciones de emisor com\'un degenerado, colector com\'un y amplificador en cascada (EC--CC) con $V_{CC} = 12\text{ V}$ y $R_L = 10\text{ k}\Omega$.
-% COMPAÑERO (EC): Al integrar la etapa de emisor comun individual, incluirla en la frase anterior.
+% USUARIO (EC): Al integrar la etapa de emisor comun individual, incluirla en la frase anterior y reportar su ganancia y error relativo.
 El seguidor de emisor confirma $A_v = 0.9941\text{ V/V}$, $|Z_{\mathrm{in}}| = 26.41\text{ k}\Omega$ ($\varepsilon_r \le 0.01\%$) y $BW > 100\text{ MHz}$, mientras que la cascada alcanza una ganancia de $152.78\text{ V/V}$ ($43.68\text{ dB}$), $|Z_{\mathrm{in}}| = 2.37\text{ k}\Omega$ y $BW = 9.52\text{ MHz}$, con errores relativos inferiores al $2.3\%$ frente al modelo te\'orico.
 \end{abstract}
 
@@ -129,7 +130,7 @@ Al sustituir en \eqref{eq:rfront} se obtiene $R_{\mathrm{frontera}} = 4.69\text{
 I_C = \beta_{\mathrm{teo}} I_B, \qquad V_{CE} = V_2 - I_C R_1
 \label{eq:activa_caract}
 \end{equation}
-La Tabla~\ref{tab:caract_teo} resume el barrido te\'orico por d\'ecadas desde $1\ \Omega$ hasta $100\text{ k}\Omega$, incluyendo los valores extremos. Para $R \le 10\ \Omega$, el modelo lineal predice $I_B > 200\text{ mA}$, superando el l\'imite continuo del 2N3904 en montaje f\'isico.
+La Tabla~\ref{tab:caract_teo} resume el barrido te\'orico por d\'ecadas desde $1\ \Omega$ hasta $100\text{ k}\Omega$, incluyendo los valores extremos. Para $R \le 10\ \Omega$, el modelo lineal predice $I_B > 200\text{ mA}$ (y $I_E = I_B + I_C > 300\text{ mA}$), superando el l\'imite continuo de corriente del 2N3904 en montaje f\'isico.
 
 \begin{table}[htbp]
 \centering
@@ -139,20 +140,20 @@ La Tabla~\ref{tab:caract_teo} resume el barrido te\'orico por d\'ecadas desde $1
 \toprule
 $R$ ($\Omega$) & $I_B$ (mA) & $I_C$ (mA) & $V_{CE}$ (V) & Regi\'on \\
 \midrule
-$1$ & $2\,300.00^{\mathrm{a}}$ & $98.00$ & $0.20$ & Saturaci\'on \\
+$1$ & $2\,300.000^{\mathrm{a}}$ & $98.00$ & $0.20$ & Saturaci\'on \\
 $10$ & $230.000^{\mathrm{a}}$ & $98.00$ & $0.20$ & Saturaci\'on \\
 $100$ & $23.000$ & $98.00$ & $0.20$ & Saturaci\'on \\
 $1\,000$ & $2.300$ & $98.00$ & $0.20$ & Saturaci\'on \\
 $10\,000$ & $0.230$ & $46.00$ & $5.40$ & Activa \\
 $100\,000$ & $0.023$ & $4.60$ & $9.54$ & Activa \\
 \bottomrule
-\multicolumn{5}{l}{\footnotesize $^{\mathrm{a}}$Excede $I_{C,\max}=200\text{ mA}$ en hoja de datos; solo v\'alido en simulaci\'on.}
+\multicolumn{5}{l}{\footnotesize $^{\mathrm{a}}$$I_B$ (y por ende $I_E = I_B + I_C$) excede el l\'imite continuo de $200\text{ mA}$ del 2N3904.}
 \end{tabular}
 \end{table}
 
 % =========================================================================
-% COMPAÑERO (EMISOR COMUN): DESCOMENTAR Y COMPLETAR ESTA SUBSECCION.
-% Mantener esquema compacto (y=5.2) para conservar la longitud <= 7 paginas.
+% USUARIO (EMISOR COMUN): DESCOMENTAR Y COMPLETAR CON LOS VALORES DEFINITIVOS
+% DE RB1, RB2, RC Y RE DEL INTEGRANTE A CARGO DE LA ETAPA EC.
 % =========================================================================
 % \subsection{Amplificador en configuraci\'on emisor com\'un}
 % % Incluir diseno (RB1, RB2, RC, RE, C1=C2=CS=10 uF, RL=10 kOhm) para |Av| ≈ 5 V/V
@@ -165,15 +166,15 @@ $100\,000$ & $0.023$ & $4.60$ & $9.54$ & Activa \\
 % \draw (5.0, 2.4) node[npn](Q1){};
 % \node[right=4pt] at (Q1.C |- Q1.B) {\shortstack[l]{$Q_1$\\2N3904}};
 % \coordinate (Bnode) at (2.6,0 |- Q1.B);
-% \draw (2.6,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{B2}$\\$\mathrm{XX\ k}\Omega$}}] (Bnode);
-% \draw (Bnode) to[R, l={\shortstack[r]{$R_{B1}$\\$\mathrm{XX\ k}\Omega$}}] (2.6, 5.2);
+% \draw (2.6,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{B2}$\\$R_{B2}$}}] (Bnode);
+% \draw (Bnode) to[R, l={\shortstack[r]{$R_{B1}$\\$R_{B1}$}}] (2.6, 5.2);
 % \draw (Bnode) -- (Q1.B);
 % \draw (-0.1,0 |- Bnode) node[left]{$V_{\mathrm{in}}$} to[C, o-, l={$C_1$}, a={$10\ \mu\mathrm{F}$}] (2.0,0 |- Bnode) -- (Bnode);
 % \draw (Q1.C) -- ++(0, 0.25) coordinate (Cnode);
-% \draw (Cnode) to[R, *-, l={\shortstack[r]{$R_C$\\$\mathrm{XX\ k}\Omega$}}] (Q1.C |- 0, 5.2);
+% \draw (Cnode) to[R, *-, l={\shortstack[r]{$R_C$\\$R_C$}}] (Q1.C |- 0, 5.2);
 % \draw (2.6, 5.2) to[short, -*] (3.8, 5.2) node[vcc]{$V_{CC}=12\ \mathrm{V}$} -- (Q1.C |- 0, 5.2);
 % \draw (Q1.E) -- (Q1.E |- 0, 1.55) coordinate (Enode);
-% \draw (Q1.E |- 0,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_E$\\$\mathrm{XX}\ \Omega$}}] (Enode);
+% \draw (Q1.E |- 0,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_E$\\$R_E$}}] (Enode);
 % \draw (Enode) -- (6.8, 1.55) to[C, l={\shortstack[l]{$C_S$\\$10\ \mu\mathrm{F}$}}] (6.8, 0) node[ground]{};
 % \draw (Cnode) to[C, l={\shortstack{$C_2$\\$10\ \mu\mathrm{F}$}}] (8.8,0 |- Cnode) coordinate (OutNode);
 % \draw (OutNode) to[short, *-o] (9.6,0 |- OutNode) node[right]{$V_{\mathrm{out}}$};
@@ -239,11 +240,54 @@ A_{v,\mathrm{ECD}} = -\frac{\alpha R_{C,\mathrm{eff}}}{r_e + R_E}
 \begin{equation}
 \begin{aligned}
 Z_{\mathrm{in,ECD}} &= R_{TH} \parallel \bigl[r_\pi + (\beta + 1)R_E\bigr] \\
-Z_{\mathrm{out,ECD}} &\approx R_C \parallel r_o
+Z_{\mathrm{out,ECD}} &= R_C \parallel \Bigl\{r_o\bigl[1 + g_m(R_E \parallel r_\pi)\bigr]\Bigr\} \approx R_C
 \end{aligned}
 \label{eq:z_ecd}
 \end{equation}
-Al evaluar \eqref{eq:av_ecd}--\eqref{eq:z_ecd} se obtiene $A_{v,\mathrm{ECD}} = -5.08\text{ V/V}$ ($14.12\text{ dB}$), $Z_{\mathrm{in,ECD}} = 5.62\text{ k}\Omega$ y $Z_{\mathrm{out,ECD}} = 3.13\text{ k}\Omega$. La degeneraci\'on de emisor ampl\'ia el l\'imite estricto de peque\~na se\~nal ($|v_{be}| \le 5\text{ mV}$) a $|v_{\mathrm{in}}| \le 5\text{ mV}(1 + g_m R_E) \approx 153\text{ mV}_p$ ($306\text{ mV}_{pp}$), cubriendo holgadamente los $50\text{ mV}_{pp}$ a $10\text{ kHz}$ exigidos. En gran se\~nal, la funci\'on de transferencia te\'orica $v_{\mathrm{out}}(v_{\mathrm{in}})$ tiene pendiente $-5.08\text{ V/V}$, acotada por corte en $+I_C R_{C,\mathrm{eff}} = +4.05\text{ V}$ y por saturaci\'on en $-4.74\text{ V}$.
+Dado que la realimentaci\'on de $R_E$ eleva la resistencia vista hacia el colector a $R_{o,\mathrm{BJT}} = r_o[1 + g_m(R_E \parallel r_\pi)] = 1.66\text{ M}\Omega \gg R_C$, \eqref{eq:av_ecd}--\eqref{eq:z_ecd} entregan $A_{v,\mathrm{ECD}} = -5.08\text{ V/V}$ ($14.12\text{ dB}$), $Z_{\mathrm{in,ECD}} = 5.62\text{ k}\Omega$ y $Z_{\mathrm{out,ECD}} = 3.30\text{ k}\Omega$. La degeneraci\'on de emisor ampl\'ia el l\'imite estricto de peque\~na se\~nal ($|v_{be}| \le 5\text{ mV}$) a $|v_{\mathrm{in}}| \le 5\text{ mV}(1 + g_m R_E) \approx 153\text{ mV}_p$ ($306\text{ mV}_{pp}$), cubriendo holgadamente los $50\text{ mV}_{pp}$ a $10\text{ kHz}$ exigidos. En gran se\~nal, la funci\'on de transferencia te\'orica $v_{\mathrm{out}}(v_{\mathrm{in}})$ tiene pendiente $-5.08\text{ V/V}$, acotada por corte en $+I_C R_{C,\mathrm{eff}} = +4.05\text{ V}$ y por saturaci\'on en $-4.74\text{ V}$.
+
+% Flotante de doble columna ubicado antes de II-C para aparecer en la parte superior de la pagina 3
+\begin{figure*}[htbp]
+\centering
+\resizebox{0.86\textwidth}{!}{%
+\begin{circuitikz}[font=\small]
+% Etapa 1: Emisor Comun (Q1)
+\draw (5.0, 2.55) node[npn](Q1){};
+\node[right=4pt] at (Q1.C |- Q1.B) {\shortstack[l]{$Q_1$\\2N3904}};
+\coordinate (B1) at (2.6,0 |- Q1.B);
+\draw (2.6,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{B2}$\\$10\ \mathrm{k}\Omega$}}] (B1);
+\draw (B1) to[R, l={\shortstack[r]{$R_{B1}$\\$39\ \mathrm{k}\Omega$}}] (2.6, 5.4);
+\draw (B1) -- (Q1.B);
+\draw (-0.1,0 |- B1) node[left]{$V_{\mathrm{in}}$} to[C, o-, l={$C_1$}, a={$10\ \mu\mathrm{F}$}] (2.0,0 |- B1) -- (B1);
+\draw (Q1.C) -- (Q1.C |- 0, 3.55) coordinate (C1node);
+\draw (C1node) to[R, *-, l={\shortstack[r]{$R_C$\\$2.7\ \mathrm{k}\Omega$}}] (Q1.C |- 0, 5.4);
+\draw (Q1.E) -- (Q1.E |- 0, 1.7) coordinate (E1node);
+\draw (Q1.E |- 0,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{E1}$\\$1\ \mathrm{k}\Omega$}}] (E1node);
+\draw (E1node) -- (7.1, 1.7) to[C, l={\shortstack[l]{$C_3$\\$100\ \mu\mathrm{F}$}}] (7.1,0) node[ground]{};
+% Etapa 2: Colector Comun (Q2)
+\draw (13.6, 2.55) node[npn](Q2){};
+\node[right=4pt] at (Q2.C |- Q2.B) {\shortstack[l]{$Q_2$\\2N3904}};
+\coordinate (B2) at (11.1,0 |- Q2.B);
+\draw (11.1,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{B4}$\\$68\ \mathrm{k}\Omega$}}] (B2);
+\draw (11.1, 5.4) to[R, l={\shortstack[l]{$R_{B3}$\\$47\ \mathrm{k}\Omega$}}] (B2);
+\draw (B2) -- (Q2.B);
+\draw (Q2.C) -- (Q2.C |- 0, 5.4);
+\draw (Q2.E) -- (Q2.E |- 0, 1.7) coordinate (E2node);
+\draw (Q2.E |- 0,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{E2}$\\$3.3\ \mathrm{k}\Omega$}}] (E2node);
+% Acoplamiento interetapa y salida
+\draw (C1node) to[C, l={\shortstack{$C_2$\\$10\ \mu\mathrm{F}$}}] (8.9, 3.55) -- (8.9,0 |- B2) -- (B2);
+\draw (E2node) to[C, a={\shortstack{$C_4$\\$10\ \mu\mathrm{F}$}}] (16.8, 1.7) coordinate (OutCasc);
+\draw (OutCasc) to[short, *-o] (17.7, 1.7) node[right]{$V_{\mathrm{out}}$};
+\draw (OutCasc) to[R, l={\shortstack[l]{$R_L$\\$10\ \mathrm{k}\Omega$}}] (OutCasc |- 0,0) node[ground]{};
+% Bus de alimentacion VCC
+\draw (2.6, 5.4) to[short, -*] (Q1.C |- 0, 5.4)
+      to[short, -*] (8.1, 5.4) node[vcc]{$V_{CC}=12\ \mathrm{V}$}
+      to[short, -*] (11.1, 5.4) -- (Q2.C |- 0, 5.4);
+\end{circuitikz}%
+}
+\caption{Esquem\'atico del amplificador en cascada (etapa emisor com\'un $Q_1$ acoplada mediante $C_2$ a etapa colector com\'un $Q_2$, $V_{CC} = 12\text{ V}$, $R_L = 10\text{ k}\Omega$, $\beta = 212.58$).}
+\label{fig:casc_esq}
+\end{figure*}
 
 \subsection{Amplificador en configuraci\'on colector com\'un}
 
@@ -298,48 +342,6 @@ Por consiguiente, la entrada exigida de $200\text{ mV}_{pp}$ a $10\text{ kHz}$ o
 
 La cascada (Fig.~\ref{fig:casc_esq}) acopla una etapa EC ($Q_1$: $R_{B1} = 39\text{ k}\Omega$, $R_{B2} = 10\text{ k}\Omega$, $R_C = 2.7\text{ k}\Omega$, $R_{E1} = 1\text{ k}\Omega$, entrada $C_1 = 10\ \mu\text{F}$ y desacoplo $C_3 = 100\ \mu\text{F}$) con la etapa CC ($Q_2$: $R_{B3} = 47\text{ k}\Omega$, $R_{B4} = 68\text{ k}\Omega$, $R_{E2} = 3.3\text{ k}\Omega$, acoplos $C_2 = C_4 = 10\ \mu\text{F}$ y $R_L = 10\text{ k}\Omega$). Aunque la gu\'ia sugiere $10\ \mu\text{F}$ en todos los capacitores, se ajust\'o $C_3 = 100\ \mu\text{F}$ para situar el polo dominante de baja frecuencia cerca de $100\text{ Hz}$.
 
-\begin{figure*}[htbp]
-\centering
-\resizebox{0.86\textwidth}{!}{%
-\begin{circuitikz}[font=\small]
-% Etapa 1: Emisor Comun (Q1)
-\draw (5.0, 2.55) node[npn](Q1){};
-\node[right=4pt] at (Q1.C |- Q1.B) {\shortstack[l]{$Q_1$\\2N3904}};
-\coordinate (B1) at (2.6,0 |- Q1.B);
-\draw (2.6,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{B2}$\\$10\ \mathrm{k}\Omega$}}] (B1);
-\draw (B1) to[R, l={\shortstack[r]{$R_{B1}$\\$39\ \mathrm{k}\Omega$}}] (2.6, 5.4);
-\draw (B1) -- (Q1.B);
-\draw (-0.1,0 |- B1) node[left]{$V_{\mathrm{in}}$} to[C, o-, l={$C_1$}, a={$10\ \mu\mathrm{F}$}] (2.0,0 |- B1) -- (B1);
-\draw (Q1.C) -- (Q1.C |- 0, 3.55) coordinate (C1node);
-\draw (C1node) to[R, *-, l={\shortstack[r]{$R_C$\\$2.7\ \mathrm{k}\Omega$}}] (Q1.C |- 0, 5.4);
-\draw (Q1.E) -- (Q1.E |- 0, 1.7) coordinate (E1node);
-\draw (Q1.E |- 0,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{E1}$\\$1\ \mathrm{k}\Omega$}}] (E1node);
-\draw (E1node) -- (7.1, 1.7) to[C, l={\shortstack[l]{$C_3$\\$100\ \mu\mathrm{F}$}}] (7.1,0) node[ground]{};
-% Etapa 2: Colector Comun (Q2)
-\draw (13.6, 2.55) node[npn](Q2){};
-\node[right=4pt] at (Q2.C |- Q2.B) {\shortstack[l]{$Q_2$\\2N3904}};
-\coordinate (B2) at (11.1,0 |- Q2.B);
-\draw (11.1,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{B4}$\\$68\ \mathrm{k}\Omega$}}] (B2);
-\draw (11.1, 5.4) to[R, l={\shortstack[l]{$R_{B3}$\\$47\ \mathrm{k}\Omega$}}] (B2);
-\draw (B2) -- (Q2.B);
-\draw (Q2.C) -- (Q2.C |- 0, 5.4);
-\draw (Q2.E) -- (Q2.E |- 0, 1.7) coordinate (E2node);
-\draw (Q2.E |- 0,0) node[ground]{} to[R, -*, l={\shortstack[r]{$R_{E2}$\\$3.3\ \mathrm{k}\Omega$}}] (E2node);
-% Acoplamiento interetapa y salida
-\draw (C1node) to[C, l={\shortstack{$C_2$\\$10\ \mu\mathrm{F}$}}] (8.9, 3.55) -- (8.9,0 |- B2) -- (B2);
-\draw (E2node) to[C, a={\shortstack{$C_4$\\$10\ \mu\mathrm{F}$}}] (16.8, 1.7) coordinate (OutCasc);
-\draw (OutCasc) to[short, *-o] (17.7, 1.7) node[right]{$V_{\mathrm{out}}$};
-\draw (OutCasc) to[R, l={\shortstack[l]{$R_L$\\$10\ \mathrm{k}\Omega$}}] (OutCasc |- 0,0) node[ground]{};
-% Bus de alimentacion VCC
-\draw (2.6, 5.4) to[short, -*] (Q1.C |- 0, 5.4)
-      to[short, -*] (8.1, 5.4) node[vcc]{$V_{CC}=12\ \mathrm{V}$}
-      to[short, -*] (11.1, 5.4) -- (Q2.C |- 0, 5.4);
-\end{circuitikz}%
-}
-\caption{Esquem\'atico del amplificador en cascada (etapa emisor com\'un $Q_1$ acoplada mediante $C_2$ a etapa colector com\'un $Q_2$, $V_{CC} = 12\text{ V}$, $R_L = 10\text{ k}\Omega$, $\beta = 212.58$).}
-\label{fig:casc_esq}
-\end{figure*}
-
 En DC, $C_2$ a\'isla ambas etapas. Para $Q_1$, \eqref{eq:thevenin}--\eqref{eq:vce_pol} entregan $V_{TH1} = 2.449\text{ V}$, $R_{TH1} = 7.959\text{ k}\Omega$, $I_{B1} = 7.90\ \mu\text{A}$, $I_{C1} = 1.678\text{ mA}$, $I_{E1} = 1.686\text{ mA}$, $V_{E1} = 1.686\text{ V}$, $V_{C1} = 7.469\text{ V}$ y $V_{CE1} = 5.783\text{ V}$. De \eqref{eq:hibridopi} se halla $g_{m1} = 64.91\text{ mS}$, $r_{e1} = 15.41\ \Omega$, $r_{\pi 1} = 3.275\text{ k}\Omega$ y $r_{o1} = 59.60\text{ k}\Omega$.
 
 En AC, la etapa CC carga al colector de $Q_1$ con $Z_{\mathrm{in2}} = 26.41\text{ k}\Omega$, resultando $R_{L1,\mathrm{eff}} = R_C \parallel Z_{\mathrm{in2}} \parallel r_{o1} = 2.353\text{ k}\Omega$. La ganancia global y las impedancias de la cascada se expresan como:
@@ -370,9 +372,9 @@ Evaluando \eqref{eq:fl_casc} resulta $f_{L,\mathrm{dom}} = 104.9\text{ Hz}$. Com
 \toprule
 Etapa & $I_C$ (mA) & $V_{CE}$ (V) & $|A_v|$ (V/V) & $Z_{\mathrm{in}}$ (k$\Omega$) & $Z_{\mathrm{out}}$ ($\Omega$) & $V_{\mathrm{in,lin}}$ \\
 \midrule
-% COMPAÑERO (EC): Descomentar y completar al agregar Emisor Comun:
-% EC & $X.XXX$ & $X.XXX$ & $5.00$ & $X.XX$ & $X\,XXX$ & $\le 10\text{ mV}_{pp}$ \\
-ECD & $1.633$ & $5.839$ & $5.08$ & $5.62$ & $3\,130$ & $\le 306\text{ mV}_{pp}$ \\
+% USUARIO (EC): Descomentar y completar al agregar Emisor Comun:
+% EC & $I_C$ & $V_{CE}$ & $5.00$ & $Z_{\mathrm{in}}$ & $Z_{\mathrm{out}}$ & $\le 10\text{ mV}_{pp}$ \\
+ECD & $1.633$ & $5.839$ & $5.08$ & $5.62$ & $3\,300$ & $\le 306\text{ mV}_{pp}$ \\
 CC & $1.856$ & $5.847$ & $0.994$ & $26.41$ & $13.87$ & $\le 1.79\text{ V}_{pp}^{\mathrm{a}}$ \\
 Cascada & $1.678$/$1.856$ & $5.783$/$5.847$ & $151.87$ & $2.32$ & $25.26$ & $\le 10\text{ mV}_{pp}$ \\
 \bottomrule
@@ -399,7 +401,7 @@ La Fig.~\ref{fig:caract_sim} consolida el barrido SPICE de $R$ entre $1\ \Omega$
 \end{figure*}
 
 % =========================================================================
-% COMPAÑERO (EMISOR COMUN): DESCOMENTAR E INTEGRAR LAS 4 GRAFICAS DE EC
+% USUARIO (EMISOR COMUN): DESCOMENTAR E INTEGRAR LAS 4 GRAFICAS DE EC
 % EN LA MISMA CUADRICULA 2x2 QUE ECD, CC Y CASCADA.
 % =========================================================================
 % \subsection{Amplificador en configuraci\'on emisor com\'un}
@@ -423,10 +425,10 @@ La Fig.~\ref{fig:ecd_sim} re\'une las cuatro simulaciones AC preliminares dispon
 
 \begin{figure}[htbp]
 \centering
+% USUARIO: Reexportar las 4 graficas del ECD a 10 kHz (50 mVpp) con los valores definitivos de la Fig. 2 en Python/Matplotlib e incluir la curva Vout vs. Vin en (c).
 \subfloat[Transitorio ($|A_v|=3.90$, $1\text{ kHz}$).]{\includegraphics[width=0.485\linewidth]{EmisorDegeneradoVinVout.png}\label{fig:ecd_tran}}\hfill
 \subfloat[Entrada ($Z_{\mathrm{in}} = 10\text{ k}\Omega$).]{\includegraphics[width=0.485\linewidth]{EmisorDegeneradoZin.png}\label{fig:ecd_zin}}\\[2pt]
-% USUARIO: Reexportar las 4 graficas del ECD a 10 kHz (50 mVpp) con los valores definitivos de la Fig. 2 e incluir la curva Vout vs. Vin en (c).
-\subfloat[Excursi\'on y recorte ($+5.2\text{ V}/-5.0\text{ V}$).]{\includegraphics[width=0.485\linewidth]{EmisorDegeneradoRecorteExcursion.png}\label{fig:ecd_clip}}\hfill
+\subfloat[Recorte ($+5.2/-5.0\text{ V}$).]{\includegraphics[width=0.485\linewidth]{EmisorDegeneradoRecorteExcursion.png}\label{fig:ecd_clip}}\hfill
 \subfloat[Bode de magnitud ($BW \approx 10\text{ MHz}$).]{\includegraphics[width=0.485\linewidth]{EmisorDegeneradoBodeMagnitud.png}\label{fig:ecd_bode_mag}}
 \caption{Resultados de simulaci\'on en LTspice del amplificador en configuraci\'on emisor com\'un degenerado.}
 \label{fig:ecd_sim}
@@ -440,11 +442,11 @@ La Fig.~\ref{fig:cc_sim} consolida las cuatro validaciones AC y de gran se\~nal 
 
 \begin{figure}[htbp]
 \centering
-% USUARIO: Insertar aqui los 4 PNG generados desde los archivos .txt de Colector Comun con el formato de la cascada.
+% USUARIO: Verificar que ColectorComunBodeMagnitud.png este en ./Figuras/ junto con las otras tres graficas.
 \subfloat[Transitorio ($10\text{ kHz}$, $A_v = 0.9941$).]{\includegraphics[width=0.485\linewidth]{ColectorComunAv.png}\label{fig:cc_tran}}\hfill
 \subfloat[Entrada ($|Z_{\mathrm{in}}| = 26.41\text{ k}\Omega$).]{\includegraphics[width=0.485\linewidth]{ColectorComunZin.png}\label{fig:cc_zin}}\\[2pt]
 \subfloat[Transferencia $V_{\mathrm{out}}$ vs. $V_{\mathrm{in}}$ ($12\text{ V}_{pp}$).]{\includegraphics[width=0.485\linewidth]{ColectorComunTransferencia.png}\label{fig:cc_trans}}\hfill
-%\subfloat[Bode ($f_L = 1.79\text{ Hz}$, $f_H > 100\text{ MHz}$).]{\includegraphics[width=0.485\linewidth]{ColectorComunBodeMagnitud.png}\label{fig:cc_bode_mag}}
+\subfloat[Bode ($f_L = 1.79\text{ Hz}$, $f_H > 100\text{ MHz}$).]{\includegraphics[width=0.485\linewidth]{ColectorComunBodeMagnitud.png}\label{fig:cc_bode_mag}}
 \caption{Resultados de simulaci\'on en LTspice del amplificador en configuraci\'on colector com\'un.}
 \label{fig:cc_sim}
 \end{figure}
@@ -466,7 +468,9 @@ La Fig.~\ref{fig:casc_sim} presenta la validaci\'on AC y de transferencia de la 
 \end{figure}
 
 % =========================================================================
-% IV. MONTAJE (COMENTADO POR SER PRE-INFORME; AL DESCOMENTAR, BORRAR \stepcounter)
+% IV. MONTAJE (COMENTADO POR SER PRE-INFORME)
+% Nota: \stepcounter{section} conserva la numeracion fija V para Analisis
+% de resultados. Eliminar \stepcounter{section} si se prefiere numeracion continua.
 % =========================================================================
 % \section{Montaje}
 % Montaje sobre protoboard con transistores 2N3904 caracterizados, resistencias,
@@ -497,17 +501,17 @@ Caract. $R_{\mathrm{frontera}}$ & $4.69$ & $3.60$ & $23.24$ & k$\Omega$ \\
 Caract. $V_{CE}$ ($10\text{ k}\Omega$) & $5.40$ & $5.50$ & $1.85$ & V \\
 Caract. $V_{CE}$ ($100\text{ k}\Omega$) & $9.54$ & $9.50$ & $0.42$ & V \\
 \midrule
-% COMPAÑERO (EC): Descomentar al agregar Emisor Comun:
-% EC $I_C$ (.op) & $X.XXX$ & $X.XXX$ & $X.XX$ & mA \\
-% EC $V_{CE}$ (.op) & $X.XXX$ & $X.XXX$ & $X.XX$ & V \\
-% EC $|A_v|$ & $5.00$ & $X.XX$ & $X.XX$ & V/V \\
-% EC $Z_{\mathrm{in}}$ & $X.XX$ & $X.XX$ & $X.XX$ & k$\Omega$ \\
+% USUARIO (EC): Descomentar y completar al agregar Emisor Comun:
+% EC $I_C$ (\texttt{.op}) & -- & -- & -- & mA \\
+% EC $V_{CE}$ (\texttt{.op}) & -- & -- & -- & V \\
+% EC $|A_v|$ & $5.00$ & -- & -- & V/V \\
+% EC $Z_{\mathrm{in}}$ & -- & -- & -- & k$\Omega$ \\
 % \midrule
 ECD $I_C$ (\texttt{.op}) & $1.633$ & $1.701$ & $4.18$ & mA \\
 ECD $V_{CE}$ (\texttt{.op}) & $5.839$ & $5.583$ & $4.39$ & V \\
 ECD $|A_v|$ (preliminar) & $5.08$ & $3.90$ & $23.23$ & V/V \\
 ECD $Z_{\mathrm{in}}$ (preliminar) & $5.62$ & $10.00$ & $77.94$ & k$\Omega$ \\
-ECD $Z_{\mathrm{out}}$ (preliminar) & $3.13$ & $2.46$ & $21.41$ & k$\Omega$ \\
+ECD $Z_{\mathrm{out}}$ (preliminar) & $3.30$ & $2.46$ & $25.45$ & k$\Omega$ \\
 \midrule
 CC $I_C$ (\texttt{.op}) & $1.856$ & $1.868$ & $0.64$ & mA \\
 CC $V_{CE}$ (\texttt{.op}) & $5.847$ & $5.808$ & $0.67$ & V \\
@@ -542,7 +546,7 @@ Conceptualmente, la gr\'afica de $I_C/I_B$ frente a $V_{CE}$ (Fig.~\ref{fig:cara
 
 La verificaci\'on \texttt{.op} en la Tabla~\ref{tab:comparacion} confirma un acuerdo notable en polarizaci\'on DC para todas las etapas: errores de apenas $0.64\%$--$0.67\%$ en el seguidor CC ($Q_2$), $2.01\%$--$2.15\%$ en $Q_1$ de la cascada y $4.18\%$--$4.39\%$ en el ECD. En todos los casos $I_C$ simulada supera levemente al c\'alculo manual (y $V_{CE}$ baja de forma proporcional) debido a que a $1.7\text{--}1.9\text{ mA}$ la tensi\'on real $V_{BE}$ del modelo exponencial es $\approx 0.669\text{ V}$ (menor a los $0.7\text{ V}$ asumidos) y el efecto Early eleva $\beta$ cerca de $222$. La sensibilidad es mayor en el ECD porque $V_E \approx 0.80\text{ V}$ es peque\~na frente a $\Delta V_{BE} \approx 32\text{ mV}$, mientras que en CC ($V_E \approx 6.19\text{ V}$) la realimentaci\'on DC hace casi despreciable dicha variaci\'on.
 
-En AC, el seguidor CC logra concordancia casi exacta en ganancia ($A_v = 0.9941\text{ V/V}$, $\varepsilon_r = 0.01\%$), impedancia de entrada ($|Z_{\mathrm{in}}| = 26.41\text{ k}\Omega$, $\varepsilon_r = 0.01\%$) y corte inferior ($f_L = 1.79\text{ Hz}$, $\varepsilon_r = 0.46\%$), con $f_H > 100\text{ MHz}$. Su curva de transferencia ratifica la diferencia entre el margen estricto de peque\~na se\~nal ($1.79\text{ V}_{pp}$) y el recorte de gran se\~nal ($+5.80\text{ V}$ por saturaci\'on, $\varepsilon_r = 2.65\%$ por ser $V_{CE,\mathrm{sat}} < 0.2\text{ V}$ en SPICE, y $-4.66\text{ V}$ por corte, $\varepsilon_r = 0.65\%$). De igual forma, la cascada mantiene errores $\le 2.28\%$ en ganancia ($0.60\%$ transitorio, $0.35\%$ Bode), $|Z_{\mathrm{in}}|$ ($2.28\%$), $f_L$ ($1.72\%$) y recorte ($\le 0.65\%$), validando $V_{\mathrm{in,max}} = 10\text{ mV}_{pp}$. En contraste, aunque el punto DC del ECD definitivo ya qued\'o verificado ($\varepsilon_r \le 4.39\%$), sus capturas AC preliminares a $1\text{ kHz}$ (Fig.~\ref{fig:ecd_sim}) exhiben desviaciones elevadas ($23.23\%$ en $|A_v|$ y $77.94\%$ en $Z_{\mathrm{in}}$) por provenir de una iteraci\'on anterior, por lo que deben reexportarse a $10\text{ kHz}$ con los valores finales de la Fig.~\ref{fig:ecd_esq} incluyendo la curva $V_{\mathrm{out}}$ vs. $V_{\mathrm{in}}$.
+En AC, el seguidor CC logra concordancia casi exacta en ganancia ($A_v = 0.9941\text{ V/V}$, $\varepsilon_r = 0.01\%$), impedancia de entrada ($|Z_{\mathrm{in}}| = 26.41\text{ k}\Omega$, $\varepsilon_r = 0.01\%$) y corte inferior ($f_L = 1.79\text{ Hz}$, $\varepsilon_r = 0.46\%$), con $f_H > 100\text{ MHz}$. Su curva de transferencia ratifica la diferencia entre el margen estricto de peque\~na se\~nal ($1.79\text{ V}_{pp}$) y el recorte de gran se\~nal ($+5.80\text{ V}$ por saturaci\'on, $\varepsilon_r = 2.65\%$ por ser $V_{CE,\mathrm{sat}} < 0.2\text{ V}$ en SPICE, y $-4.66\text{ V}$ por corte, $\varepsilon_r = 0.65\%$). De igual forma, la cascada mantiene errores $\le 2.28\%$ en ganancia ($0.60\%$ transitorio, $0.35\%$ Bode), $|Z_{\mathrm{in}}|$ ($2.28\%$), $f_L$ ($1.72\%$) y recorte ($\le 0.65\%$), validando $V_{\mathrm{in,max}} = 10\text{ mV}_{pp}$. En contraste, aunque el punto DC del ECD definitivo ya qued\'o verificado ($\varepsilon_r \le 4.39\%$), sus capturas AC preliminares a $1\text{ kHz}$ (Fig.~\ref{fig:ecd_sim}) exhiben desviaciones elevadas ($23.23\%$ en $|A_v|$, $77.94\%$ en $Z_{\mathrm{in}}$ y $25.45\%$ en $Z_{\mathrm{out}}$) por provenir de una iteraci\'on anterior, por lo que deber\'an sustituirse por la simulaci\'on a $10\text{ kHz}$ con los componentes definitivos de la Fig.~\ref{fig:ecd_esq}.
 
 Para que una polarizaci\'on garantice buena amplificaci\'on deben cumplirse cuatro condiciones \cite{sedra2020,horowitz2015}: (i) operar firmemente en regi\'on activa directa lejos de corte y saturaci\'on; (ii) centrar el punto $Q$ sobre la recta de carga AC para maximizar la excursi\'on sim\'etrica sin recorte ($V_{CE} \approx V_{CC}/2$); (iii) estabilizar el punto $Q$ ante variaciones de $\beta$ y temperatura mediante divisor de tensi\'on r\'igido y resistencia de emisor $R_E$; y (iv) respetar los l\'imites t\'ermicos y el\'ectricos del 2N3904 ($P_D \le 625\text{ mW}$, $I_C \le 200\text{ mA}$, $V_{CEO} \le 40\text{ V}$ \cite{onsemi2021}) seleccionando capacitores acordes al ancho de banda deseado.
 
@@ -561,31 +565,31 @@ Las ventajas, desventajas y escenarios de aplicaci\'on de las configuraciones tr
 \section{Conclusiones}
 
 \begin{enumerate}
-\item En la caracterizaci\'on del 2N3904, el modelo lineal predijo con precisi\'on $V_{CE}$ en regi\'on activa ($\varepsilon_r \le 1.85\%$) e $I_{C,\mathrm{sat}}$ ($\varepsilon_r = 1.53\%$), mientras que el desplazamiento de $R_{\mathrm{frontera}}$ ($\varepsilon_r = 23.24\%$) y la pendiente de $\beta(V_{CE})$ reflejan el efecto Early y la alta inyecci\'on en SPICE. Las mediciones previas ($\beta_{\mathrm{prom1}} = 212.58$ y $\beta_{\mathrm{prom2}} = 246.13$) permitieron calibrar fielmente las simulaciones.
-\item La verificaci\'on de polarizaci\'on DC (\texttt{.op}) confirm\'o puntos $Q$ centrados en regi\'on activa con errores relativos entre $0.64\%$ y $4.39\%$ en $I_C$ y $V_{CE}$ para ECD, CC y cascada, explicados por $V_{BE} \approx 0.669\text{ V}$ y el efecto Early del modelo de Gummel--Poon.
-\item El seguidor de emisor (CC) valid\'o el modelo anal\'itico con precisi\'on excepcional en ganancia ($0.994$ vs. $0.9941\text{ V/V}$, $\varepsilon_r = 0.01\%$), impedancia de entrada ($26.41$ vs. $26.41\text{ k}\Omega$, $\varepsilon_r = 0.01\%$), corte inferior ($1.78$ vs. $1.79\text{ Hz}$, $\varepsilon_r = 0.46\%$) y recortes de gran se\~nal ($+5.80\text{ V}/-4.66\text{ V}$, $\varepsilon_r \le 2.65\%$), diferenciando claramente el l\'imite estricto de peque\~na se\~nal ($1.79\text{ V}_{pp}$) del recorte sim\'etrico ($9.33\text{ V}_{pp}$).
-\item La cascada (EC + CC) demostr\'o excelente concordancia en ganancia ($151.87$ vs. $152.78\text{ V/V}$, $\varepsilon_r = 0.60\%$), $|Z_{\mathrm{in}}|$ ($2.320$ vs. $2.373\text{ k}\Omega$, $\varepsilon_r = 2.28\%$), $f_L$ ($104.9$ vs. $106.7\text{ Hz}$, $\varepsilon_r = 1.72\%$) y recorte ($+4.12\text{ V}/-4.66\text{ V}$, $\varepsilon_r \le 0.65\%$), validando el l\'imite lineal de $10\text{ mV}_{pp}$. Para cerrar el pre-informe solo resta reexportar las simulaciones AC a $10\text{ kHz}$ del ECD definitivo junto con su curva de transferencia e integrar la etapa EC individual.
+\item En la caracterizaci\'on del 2N3904, el modelo lineal predijo con precisi\'on $V_{CE}$ en regi\'on activa ($\varepsilon_r \le 1.85\%$) e $I_{C,\mathrm{sat}}$ ($\varepsilon_r = 1.53\%$), mientras que el desplazamiento de $R_{\mathrm{frontera}}$ ($\varepsilon_r = 23.24\%$) y la pendiente de $\beta(V_{CE})$ reflejan el efecto Early y la alta inyecci\'on del modelo de Gummel--Poon en SPICE. Las mediciones previas ($\beta_{\mathrm{prom1}} = 212.58$ y $\beta_{\mathrm{prom2}} = 246.13$) permitieron calibrar fielmente las simulaciones.
+\item La verificaci\'on de polarizaci\'on DC (\texttt{.op}) confirm\'o puntos $Q$ centrados en regi\'on activa con errores relativos entre $0.64\%$ y $4.39\%$ en $I_C$ y $V_{CE}$ para ECD, CC y cascada, explicados por $V_{BE} \approx 0.669\text{ V}$ frente a los $0.7\text{ V}$ asumidos y por la variaci\'on efectiva de $\beta$ debida al efecto Early.
+\item El seguidor de emisor valid\'o su desempe\~no como etapa b\'ufer con $A_v = 0.9941\text{ V/V}$ ($\varepsilon_r = 0.01\%$), $|Z_{\mathrm{in}}| = 26.41\text{ k}\Omega$ ($\varepsilon_r = 0.01\%$), $f_L = 1.79\text{ Hz}$ ($\varepsilon_r = 0.46\%$) y $BW > 100\text{ MHz}$, diferenciando claramente el r\'egimen estricto de peque\~na se\~nal ($1.79\text{ V}_{pp}$) del recorte en gran se\~nal ($+5.80\text{ V}/-4.66\text{ V}$).
+\item El amplificador en cascada (EC + CC) demostr\'o el aislamiento interetapa y la reducci\'on del efecto de carga de $R_L$, alcanzando $|A_v| = 152.78\text{ V/V}$ en transitorio ($\varepsilon_r = 0.60\%$) y $152.40\text{ V/V}$ en Bode ($\varepsilon_r = 0.35\%$), $|Z_{\mathrm{in}}| = 2.373\text{ k}\Omega$ ($\varepsilon_r = 2.28\%$), $f_L = 106.7\text{ Hz}$ ($\varepsilon_r = 1.72\%$) y $BW = 9.52\text{ MHz}$, con l\'imite lineal confirmado en $10\text{ mV}_{pp}$.
 \end{enumerate}
 
 \begin{thebibliography}{9}
 
 \bibitem{sedra2020}
-A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, \emph{Microelectronic Circuits}, 8th ed. New York, NY, USA: Oxford University Press, 2020.
+A.~S. Sedra, K.~C. Smith, T.~C. Carusone, y V.~Gaudet, \emph{Microelectronic Circuits}, 8.\textsuperscript{a} ed. Nueva York, NY, EE.~UU.: Oxford University Press, 2020.
 
 \bibitem{onsemi2021}
-onsemi, \emph{2N3903, 2N3904 General Purpose Transistors NPN Silicon}, Datasheet 2N3903/D, Rev. 9, Aug. 2021.
+onsemi, \emph{2N3904 General Purpose Transistor NPN Silicon}, Hoja de datos, Rev.~14, 2021.
 
 \bibitem{webster2010}
-J. G. Webster, Ed., \emph{Medical Instrumentation: Application and Design}, 4th ed. Hoboken, NJ, USA: John Wiley \& Sons, 2010.
+J.~G. Webster, \emph{Medical Instrumentation: Application and Design}, 4.\textsuperscript{a} ed. Hoboken, NJ, EE.~UU.: John Wiley \& Sons, 2010.
 
 \bibitem{razavi2012}
-B. Razavi, \emph{RF Microelectronics}, 2nd ed. Upper Saddle River, NJ, USA: Pearson Education, 2012.
+B.~Razavi, \emph{RF Microelectronics}, 2.\textsuperscript{a} ed. Upper Saddle River, NJ, EE.~UU.: Prentice Hall, 2012.
 
 \bibitem{fortescue2011}
-P. Fortescue, G. Swinerd, and J. Stark, Eds., \emph{Spacecraft Systems Engineering}, 4th ed. Hoboken, NJ, USA: John Wiley \& Sons, 2011.
+P.~Fortescue, G.~Swinerd, y J.~Stark, \emph{Spacecraft Systems Engineering}, 4.\textsuperscript{a} ed. Chichester, Reino Unido: John Wiley \& Sons, 2011.
 
 \bibitem{horowitz2015}
-P. Horowitz and W. Hill, \emph{The Art of Electronics}, 3rd ed. Cambridge, U.K.: Cambridge University Press, 2015.
+P.~Horowitz y W.~Hill, \emph{The Art of Electronics}, 3.\textsuperscript{a} ed. Cambridge, Reino Unido: Cambridge University Press, 2015.
 
 \end{thebibliography}
 
